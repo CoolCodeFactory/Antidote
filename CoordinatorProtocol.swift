@@ -67,3 +67,18 @@ protocol MasterDetailCoordinatorProtocol: CoordinatorProtocol {
     
     init(splitViewController: UISplitViewController)
 }
+
+protocol NavigationCoordinatorProtocol: CoordinatorProtocol {
+    
+    weak var presentingNavigationController: UINavigationController! { get }
+    
+    init(presentingNavigationController: UINavigationController)
+}
+
+
+
+
+
+
+
+

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import AntidoteArchitectureExample
+
 
 class AntidoteArchitectureExampleTests: XCTestCase {
     

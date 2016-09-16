@@ -8,8 +8,9 @@
 
 import UIKit
 
-class UserFlowCoordinator: ModalCoordinatorProtocol, MasterDetailCoordinatorProtocol, PageBasedCoordinatorProtocol, TabbedCoordinatorProtocol {
+class UserFlowCoordinator: CoordinatorProtocol, ModalCoordinatorProtocol, MasterDetailCoordinatorProtocol, PageBasedCoordinatorProtocol, TabbedCoordinatorProtocol, NavigationCoordinatorProtocol {
     
+    // MARK: - CoordinatorProtocol
     var childCoordinators = [CoordinatorProtocol]()
     
     weak var navigationController: UINavigationController?
@@ -18,29 +19,41 @@ class UserFlowCoordinator: ModalCoordinatorProtocol, MasterDetailCoordinatorProt
     
     let viewControllersFactory = UserViewControllersFactory()
     
-    weak var presentingViewController: UIViewController!
+    // MARK: - ModalCoordinatorProtocol
+    weak var splitViewController: UISplitViewController!
     
-    required init(presentingViewController: UIViewController) {
-        self.presentingViewController = presentingViewController
+    required init(splitViewController: UISplitViewController) {
+        self.splitViewController = splitViewController
     }
     
+    // MARK: - MasterDetailCoordinatorProtocol
     weak var tabBarController: UITabBarController!
     
     required init(tabBarController: UITabBarController) {
         self.tabBarController = tabBarController
     }
     
+    // MARK: - PageBasedCoordinatorProtocol
     weak var pageViewController: UIPageViewController!
     
     required init(pageViewController: UIPageViewController) {
         self.pageViewController = pageViewController
     }
 
-    weak var splitViewController: UISplitViewController!
+    // MARK: - TabbedCoordinatorProtocol
+    weak var presentingViewController: UIViewController!
     
-    required init(splitViewController: UISplitViewController) {
-        self.splitViewController = splitViewController
+    required init(presentingViewController: UIViewController) {
+        self.presentingViewController = presentingViewController
     }
+    
+    // MARK: - NavigationCoordinatorProtocol
+    weak var presentingNavigationController: UINavigationController!
+    
+    required init(presentingNavigationController: UINavigationController) {
+        self.presentingNavigationController = presentingNavigationController
+    }
+    
     
     func start(animated animated: Bool) {
         if presentingViewController != nil {
@@ -49,37 +62,39 @@ class UserFlowCoordinator: ModalCoordinatorProtocol, MasterDetailCoordinatorProt
             viewController.selectUserHandler = { name in
                 self.presentUserViewController(withName: name)
             }
-            // FIXME: Move to Storyboard
-            let navVC = UINavigationController(rootViewController: viewController)
-            navVC.title = "Users"
+            
+            let navVC = viewControllersFactory.navigationController()
+            navVC.setViewControllers([viewController], animated: false)
 
             presentingViewController.presentViewController(navVC, animated: true, completion: nil)
             navigationController = navVC
         }
+        
         if splitViewController != nil {
             let viewController = viewControllersFactory.usersTableViewController()
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
             viewController.selectUserHandler = { name in
                 self.presentUserViewController(withName: name)
             }
-            // FIXME: Move to Storyboard
-            let navVC = UINavigationController(rootViewController: viewController)
-            navVC.title = "Users"
+            
+            let navVC = viewControllersFactory.navigationController()
+            navVC.setViewControllers([viewController], animated: false)
             
             splitViewController.viewControllers = [navVC]
         }
+        
         if pageViewController != nil {
             
         }
+        
         if tabBarController != nil {
             let viewController = viewControllersFactory.usersTableViewController()
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
             viewController.selectUserHandler = { name in
                 self.presentUserViewController(withName: name)
             }
-            // FIXME: Move to Storyboard
-            let navVC = UINavigationController(rootViewController: viewController)
-            navVC.title = "Users"
+            let navVC = viewControllersFactory.navigationController()
+            navVC.setViewControllers([viewController], animated: false)
             
             if var viewControllers = tabBarController.viewControllers {
                 viewControllers.append(navVC)
@@ -87,6 +102,15 @@ class UserFlowCoordinator: ModalCoordinatorProtocol, MasterDetailCoordinatorProt
             } else {
                 tabBarController.setViewControllers([navVC], animated: false)
             }
+        }
+        
+        if presentingNavigationController != nil {
+            let viewController = viewControllersFactory.usersTableViewController()
+            viewController.selectUserHandler = { name in
+                self.presentUserViewController(withName: name)
+            }
+            
+            presentingNavigationController.pushViewController(viewController, animated: animated)
         }
     }
     
@@ -100,25 +124,25 @@ class UserFlowCoordinator: ModalCoordinatorProtocol, MasterDetailCoordinatorProt
             let viewController = viewControllersFactory.userViewController(withName: name)
             navigationController?.pushViewController(viewController, animated: true)
         }
+        
         if splitViewController != nil {
             let viewController = viewControllersFactory.userViewController(withName: name)
-            
-            // FIXME: Move to Storyboard
-            let navVC = UINavigationController(rootViewController: viewController)
-            navVC.title = "User"
+            let navVC = viewControllersFactory.navigationController()
+            navVC.setViewControllers([viewController], animated: false)
             
             splitViewController.showDetailViewController(navVC, sender: nil)
         }
+        
         if pageViewController != nil {
             fatalError()
         }
+        
         if tabBarController != nil {
             let viewController = viewControllersFactory.userViewController(withName: name)
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
             
-            // FIXME: Move to Storyboard
-            let navVC = UINavigationController(rootViewController: viewController)
-            navVC.title = "User"
+            let navVC = viewControllersFactory.navigationController()
+            navVC.setViewControllers([viewController], animated: false)
             
             let viewControllers = tabBarController.viewControllers!
             var filteredViewControllers = viewControllers.filter({ (viewController) -> Bool in
@@ -127,6 +151,11 @@ class UserFlowCoordinator: ModalCoordinatorProtocol, MasterDetailCoordinatorProt
             })
             filteredViewControllers.append(navVC)
             tabBarController.setViewControllers(filteredViewControllers, animated: false)
+        }
+        
+        if presentingNavigationController != nil {
+            let viewController = viewControllersFactory.userViewController(withName: name)
+            presentingNavigationController?.pushViewController(viewController, animated: true)
         }
     }
 }

@@ -6,6 +6,19 @@
     </dependencies>
     <scenes>
         <!--Users-->
+        <scene sceneID="KFO-f4-Pge">
+            <objects>
+                <navigationController storyboardIdentifier="UINavigationController" title="Users" id="zxL-jM-Yn0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l4e-f9-3e4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GHg-I2-xsk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-386" y="433"/>
+        </scene>
+        <!--Users-->
         <scene sceneID="tFB-wb-sDA">
             <objects>
                 <tableViewController storyboardIdentifier="UsersTableViewController" id="2i1-Gd-KxW" customClass="UsersTableViewController" customModule="AntidoteArchitectureExample" customModuleProvider="target" sceneMemberID="viewController">

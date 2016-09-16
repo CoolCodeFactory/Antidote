@@ -8,6 +8,7 @@
 
 import XCTest
 
+
 class AntidoteArchitectureExampleUITests: XCTestCase {
         
     override func setUp() {

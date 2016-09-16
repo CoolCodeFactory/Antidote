@@ -13,7 +13,7 @@ extension UIWindow {
     
     func setRootViewController(viewController: UIViewController, animated: Bool) {
         if animated {
-            // FIXME: NavBar Blink - http://stackoverflow.com/a/29235480/2640551
+            // NavBar Blink - http://stackoverflow.com/a/29235480/2640551
             
             guard let rootViewController = rootViewController else { return }
             let snapshotView = rootViewController.view.snapshotViewAfterScreenUpdates(true)
@@ -21,7 +21,7 @@ extension UIWindow {
             self.rootViewController = viewController
             viewController.view.addSubview(snapshotView)
             
-            UIView.animateWithDuration(kDefaultAnimationDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            UIView.animateWithDuration(kDefaultAnimationDuration, delay: 0.0, options: [.CurveEaseOut], animations: {
                 snapshotView.alpha = 0.0
             }, completion: { (finished) in
                 snapshotView.removeFromSuperview()

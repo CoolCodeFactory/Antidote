@@ -14,7 +14,9 @@ class MenuTableViewController: UITableViewController {
     var selectPageBasedHandler: () -> () = { fatalError() }
     var selectTabbedHandler: () -> () = { fatalError() }
     var selectModalHandler: () -> () = { fatalError() }
-
+    var selectPushHandler: () -> () = { fatalError() }
+    var selectContainerHandler: () -> () = { fatalError() }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +44,11 @@ class MenuTableViewController: UITableViewController {
             selectTabbedHandler()
         case 3:
             selectModalHandler()
+        case 4:
+            selectPushHandler()
+        case 5:
+            selectContainerHandler()
+            
         default:
             fatalError()
         }
