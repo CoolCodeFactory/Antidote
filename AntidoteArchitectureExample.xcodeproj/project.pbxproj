@@ -11,17 +11,17 @@
 		1CBC3B3E1D8BF7FD00BAA6A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B3C1D8BF7FD00BAA6A9 /* Main.storyboard */; };
 		1CBC3B401D8BF7FD00BAA6A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B3F1D8BF7FD00BAA6A9 /* Assets.xcassets */; };
 		1CBC3B431D8BF7FD00BAA6A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B411D8BF7FD00BAA6A9 /* LaunchScreen.storyboard */; };
-		1CBC3B4E1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B4D1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.swift */; };
-		1CBC3B591D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B581D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.swift */; };
+		1CBC3B4E1D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B4D1D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleTests.swift */; };
+		1CBC3B591D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B581D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleUITests.swift */; };
 		1CBC3B6D1D8BF8DC00BAA6A9 /* ProfileFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B6C1D8BF8DC00BAA6A9 /* ProfileFlowCoordinator.swift */; };
 		1CBC3B6F1D8BF8EC00BAA6A9 /* UserFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B6E1D8BF8EC00BAA6A9 /* UserFlowCoordinator.swift */; };
-		1CBC3B711D8BF8FD00BAA6A9 /* Master-DetailFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B701D8BF8FD00BAA6A9 /* Master-DetailFlowCoordinator.swift */; };
-		1CBC3B731D8BF90800BAA6A9 /* Page-BasedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B721D8BF90800BAA6A9 /* Page-BasedFlowCoordinator.swift */; };
+		1CBC3B711D8BF8FD00BAA6A9 /* MasterDetailFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B701D8BF8FD00BAA6A9 /* MasterDetailFlowCoordinator.swift */; };
+		1CBC3B731D8BF90800BAA6A9 /* PageBasedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B721D8BF90800BAA6A9 /* PageBasedFlowCoordinator.swift */; };
 		1CBC3B751D8BF91400BAA6A9 /* TabbedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B741D8BF91400BAA6A9 /* TabbedFlowCoordinator.swift */; };
 		1CBC3B771D8BF92700BAA6A9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B761D8BF92700BAA6A9 /* Profile.storyboard */; };
 		1CBC3B791D8BF92F00BAA6A9 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B781D8BF92F00BAA6A9 /* User.storyboard */; };
-		1CBC3B7B1D8BF95500BAA6A9 /* Master-Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B7A1D8BF95500BAA6A9 /* Master-Detail.storyboard */; };
-		1CBC3B7D1D8BF95F00BAA6A9 /* Page-Based.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B7C1D8BF95F00BAA6A9 /* Page-Based.storyboard */; };
+		1CBC3B7B1D8BF95500BAA6A9 /* MasterDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B7A1D8BF95500BAA6A9 /* MasterDetail.storyboard */; };
+		1CBC3B7D1D8BF95F00BAA6A9 /* PageBased.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B7C1D8BF95F00BAA6A9 /* PageBased.storyboard */; };
 		1CBC3B7F1D8BF96800BAA6A9 /* Tabbed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B7E1D8BF96800BAA6A9 /* Tabbed.storyboard */; };
 		1CBC3B831D8BF99800BAA6A9 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B821D8BF99800BAA6A9 /* Menu.storyboard */; };
 		1CBC3B851D8BF9A700BAA6A9 /* MenuFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B841D8BF9A700BAA6A9 /* MenuFlowCoordinator.swift */; };
@@ -31,6 +31,25 @@
 		1CBC3B8E1D8BFB1B00BAA6A9 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B8D1D8BFB1B00BAA6A9 /* UIViewController+Extensions.swift */; };
 		1CBC3B921D8BFB8100BAA6A9 /* MenuViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B911D8BFB8100BAA6A9 /* MenuViewControllersFactory.swift */; };
 		1CBC3B941D8BFBDD00BAA6A9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B931D8BFBDD00BAA6A9 /* Constants.swift */; };
+		1CBC3B971D8BFEF000BAA6A9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B961D8BFEF000BAA6A9 /* AppCoordinator.swift */; };
+		1CBC3B9A1D8C051800BAA6A9 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B991D8C051800BAA6A9 /* Authentication.storyboard */; };
+		1CBC3B9C1D8C052400BAA6A9 /* AuthenticationFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B9B1D8C052400BAA6A9 /* AuthenticationFlowCoordinator.swift */; };
+		1CBC3B9E1D8C053200BAA6A9 /* AuthenticationViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B9D1D8C053200BAA6A9 /* AuthenticationViewControllersFactory.swift */; };
+		1CBC3BA21D8C05AF00BAA6A9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BA11D8C05AF00BAA6A9 /* SignInViewController.swift */; };
+		1CBC3BA41D8C065A00BAA6A9 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BA31D8C065A00BAA6A9 /* UIWindow+Extensions.swift */; };
+		1CBC3BA71D8C0EAF00BAA6A9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BA61D8C0EAF00BAA6A9 /* CoordinatorProtocol.swift */; };
+		1CBC3BAA1D8C12CA00BAA6A9 /* MasterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BA91D8C12CA00BAA6A9 /* MasterDetailViewController.swift */; };
+		1CBC3BAD1D8C12E500BAA6A9 /* PageBasedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BAC1D8C12E500BAA6A9 /* PageBasedViewController.swift */; };
+		1CBC3BB01D8C130900BAA6A9 /* TabbedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BAF1D8C130900BAA6A9 /* TabbedController.swift */; };
+		1CBC3BB21D8C138200BAA6A9 /* MasterDetailViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BB11D8C138200BAA6A9 /* MasterDetailViewControllersFactory.swift */; };
+		1CBC3BB41D8C139400BAA6A9 /* PageBasedViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BB31D8C139400BAA6A9 /* PageBasedViewControllersFactory.swift */; };
+		1CBC3BB61D8C13A200BAA6A9 /* TabbedViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BB51D8C13A200BAA6A9 /* TabbedViewControllersFactory.swift */; };
+		1CBC3BBA1D8C175F00BAA6A9 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BB91D8C175F00BAA6A9 /* UsersTableViewController.swift */; };
+		1CBC3BBC1D8C176900BAA6A9 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BBB1D8C176900BAA6A9 /* UserViewController.swift */; };
+		1CBC3BBE1D8C179800BAA6A9 /* UserViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BBD1D8C179800BAA6A9 /* UserViewControllersFactory.swift */; };
+		5840EBBA3D5767136E581F88 /* Pods_AntidoteArchitectureExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248D89928567FC17D63A37BE /* Pods_AntidoteArchitectureExample.framework */; };
+		C0B83BFAEDF79B7853F92863 /* Pods_AntidoteArchitectureExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84541D6BF6B0912DB8E8B854 /* Pods_AntidoteArchitectureExampleUITests.framework */; };
+		D50527EA431E642067C9B2C6 /* Pods_AntidoteArchitectureExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D9D841E8183DD838760B90 /* Pods_AntidoteArchitectureExampleTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,39 +58,40 @@
 			containerPortal = 1CBC3B2D1D8BF7FD00BAA6A9 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1CBC3B341D8BF7FD00BAA6A9;
-			remoteInfo = AntodoteArchitectureExample;
+			remoteInfo = AntidoteArchitectureExample;
 		};
 		1CBC3B551D8BF7FD00BAA6A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1CBC3B2D1D8BF7FD00BAA6A9 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1CBC3B341D8BF7FD00BAA6A9;
-			remoteInfo = AntodoteArchitectureExample;
+			remoteInfo = AntidoteArchitectureExample;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1CBC3B351D8BF7FD00BAA6A9 /* AntodoteArchitectureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntodoteArchitectureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09D9D841E8183DD838760B90 /* Pods_AntidoteArchitectureExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntidoteArchitectureExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CBC3B351D8BF7FD00BAA6A9 /* AntidoteArchitectureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntidoteArchitectureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CBC3B381D8BF7FD00BAA6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CBC3B3D1D8BF7FD00BAA6A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CBC3B3F1D8BF7FD00BAA6A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CBC3B421D8BF7FD00BAA6A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CBC3B441D8BF7FD00BAA6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CBC3B491D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntodoteArchitectureExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CBC3B4D1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntodoteArchitectureExampleTests.swift; sourceTree = "<group>"; };
+		1CBC3B491D8BF7FD00BAA6A9 /* AntidoteArchitectureExample.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntidoteArchitectureExample.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CBC3B4D1D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntidoteArchitectureExampleTests.swift; sourceTree = "<group>"; };
 		1CBC3B4F1D8BF7FD00BAA6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CBC3B541D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntodoteArchitectureExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CBC3B581D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntodoteArchitectureExampleUITests.swift; sourceTree = "<group>"; };
+		1CBC3B541D8BF7FD00BAA6A9 /* AntidoteArchitectureExample.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntidoteArchitectureExample.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CBC3B581D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntidoteArchitectureExampleUITests.swift; sourceTree = "<group>"; };
 		1CBC3B5A1D8BF7FD00BAA6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CBC3B6C1D8BF8DC00BAA6A9 /* ProfileFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFlowCoordinator.swift; sourceTree = "<group>"; };
 		1CBC3B6E1D8BF8EC00BAA6A9 /* UserFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFlowCoordinator.swift; sourceTree = "<group>"; };
-		1CBC3B701D8BF8FD00BAA6A9 /* Master-DetailFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Master-DetailFlowCoordinator.swift"; sourceTree = "<group>"; };
-		1CBC3B721D8BF90800BAA6A9 /* Page-BasedFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Page-BasedFlowCoordinator.swift"; sourceTree = "<group>"; };
+		1CBC3B701D8BF8FD00BAA6A9 /* MasterDetailFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterDetailFlowCoordinator.swift; sourceTree = "<group>"; };
+		1CBC3B721D8BF90800BAA6A9 /* PageBasedFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageBasedFlowCoordinator.swift; sourceTree = "<group>"; };
 		1CBC3B741D8BF91400BAA6A9 /* TabbedFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedFlowCoordinator.swift; sourceTree = "<group>"; };
 		1CBC3B761D8BF92700BAA6A9 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		1CBC3B781D8BF92F00BAA6A9 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
-		1CBC3B7A1D8BF95500BAA6A9 /* Master-Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Master-Detail.storyboard"; sourceTree = "<group>"; };
-		1CBC3B7C1D8BF95F00BAA6A9 /* Page-Based.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Page-Based.storyboard"; sourceTree = "<group>"; };
+		1CBC3B7A1D8BF95500BAA6A9 /* MasterDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MasterDetail.storyboard; sourceTree = "<group>"; };
+		1CBC3B7C1D8BF95F00BAA6A9 /* PageBased.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PageBased.storyboard; sourceTree = "<group>"; };
 		1CBC3B7E1D8BF96800BAA6A9 /* Tabbed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tabbed.storyboard; sourceTree = "<group>"; };
 		1CBC3B821D8BF99800BAA6A9 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		1CBC3B841D8BF9A700BAA6A9 /* MenuFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -81,6 +101,30 @@
 		1CBC3B8D1D8BFB1B00BAA6A9 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		1CBC3B911D8BFB8100BAA6A9 /* MenuViewControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewControllersFactory.swift; sourceTree = "<group>"; };
 		1CBC3B931D8BFBDD00BAA6A9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1CBC3B961D8BFEF000BAA6A9 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1CBC3B991D8C051800BAA6A9 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		1CBC3B9B1D8C052400BAA6A9 /* AuthenticationFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationFlowCoordinator.swift; sourceTree = "<group>"; };
+		1CBC3B9D1D8C053200BAA6A9 /* AuthenticationViewControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewControllersFactory.swift; sourceTree = "<group>"; };
+		1CBC3BA11D8C05AF00BAA6A9 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		1CBC3BA31D8C065A00BAA6A9 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
+		1CBC3BA61D8C0EAF00BAA6A9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		1CBC3BA91D8C12CA00BAA6A9 /* MasterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterDetailViewController.swift; sourceTree = "<group>"; };
+		1CBC3BAC1D8C12E500BAA6A9 /* PageBasedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageBasedViewController.swift; sourceTree = "<group>"; };
+		1CBC3BAF1D8C130900BAA6A9 /* TabbedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedController.swift; sourceTree = "<group>"; };
+		1CBC3BB11D8C138200BAA6A9 /* MasterDetailViewControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterDetailViewControllersFactory.swift; sourceTree = "<group>"; };
+		1CBC3BB31D8C139400BAA6A9 /* PageBasedViewControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageBasedViewControllersFactory.swift; sourceTree = "<group>"; };
+		1CBC3BB51D8C13A200BAA6A9 /* TabbedViewControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbedViewControllersFactory.swift; sourceTree = "<group>"; };
+		1CBC3BB91D8C175F00BAA6A9 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		1CBC3BBB1D8C176900BAA6A9 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		1CBC3BBD1D8C179800BAA6A9 /* UserViewControllersFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewControllersFactory.swift; sourceTree = "<group>"; };
+		1E3F400F609E99060388E535 /* Pods-AntidoteArchitectureExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntidoteArchitectureExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AntidoteArchitectureExampleTests/Pods-AntidoteArchitectureExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2396F263AB5CCEAC0F72419B /* Pods-AntidoteArchitectureExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntidoteArchitectureExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AntidoteArchitectureExampleUITests/Pods-AntidoteArchitectureExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		248D89928567FC17D63A37BE /* Pods_AntidoteArchitectureExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntidoteArchitectureExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50D07AA85E49807B15837996 /* Pods-AntidoteArchitectureExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntidoteArchitectureExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AntidoteArchitectureExampleUITests/Pods-AntidoteArchitectureExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7208FD6F0DC1C2AE1062EBC5 /* Pods-AntidoteArchitectureExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntidoteArchitectureExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AntidoteArchitectureExampleTests/Pods-AntidoteArchitectureExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		84541D6BF6B0912DB8E8B854 /* Pods_AntidoteArchitectureExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntidoteArchitectureExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2D29B4D197CAC34B6C30CEC /* Pods-AntidoteArchitectureExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntidoteArchitectureExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AntidoteArchitectureExample/Pods-AntidoteArchitectureExample.debug.xcconfig"; sourceTree = "<group>"; };
+		E8A9786335D0E797009A8D34 /* Pods-AntidoteArchitectureExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntidoteArchitectureExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-AntidoteArchitectureExample/Pods-AntidoteArchitectureExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5840EBBA3D5767136E581F88 /* Pods_AntidoteArchitectureExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D50527EA431E642067C9B2C6 /* Pods_AntidoteArchitectureExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B83BFAEDF79B7853F92863 /* Pods_AntidoteArchitectureExampleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,60 +158,65 @@
 		1CBC3B2C1D8BF7FD00BAA6A9 = {
 			isa = PBXGroup;
 			children = (
-				1CBC3B371D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */,
-				1CBC3B4C1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests */,
-				1CBC3B571D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests */,
+				1CBC3B371D8BF7FD00BAA6A9 /* AntidoteArchitectureExample */,
+				1CBC3B4C1D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleTests */,
+				1CBC3B571D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleUITests */,
 				1CBC3B361D8BF7FD00BAA6A9 /* Products */,
+				5625388E16559A81B98A5130 /* Pods */,
+				365262504CE33CEAC32BEC42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		1CBC3B361D8BF7FD00BAA6A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1CBC3B351D8BF7FD00BAA6A9 /* AntodoteArchitectureExample.app */,
-				1CBC3B491D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.xctest */,
-				1CBC3B541D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.xctest */,
+				1CBC3B351D8BF7FD00BAA6A9 /* AntidoteArchitectureExample.app */,
+				1CBC3B491D8BF7FD00BAA6A9 /* AntidoteArchitectureExample.xctest */,
+				1CBC3B541D8BF7FD00BAA6A9 /* AntidoteArchitectureExample.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1CBC3B371D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */ = {
+		1CBC3B371D8BF7FD00BAA6A9 /* AntidoteArchitectureExample */ = {
 			isa = PBXGroup;
 			children = (
 				1CBC3B931D8BFBDD00BAA6A9 /* Constants.swift */,
 				1CBC3B3F1D8BF7FD00BAA6A9 /* Assets.xcassets */,
 				1CBC3B681D8BF82500BAA6A9 /* Flows */,
+				1CBC3BA51D8C0E9600BAA6A9 /* Protocols */,
 				1CBC3B901D8BFB3900BAA6A9 /* Extensions */,
 				1CBC3B8F1D8BFB2500BAA6A9 /* Supporting Files */,
 			);
-			path = AntodoteArchitectureExample;
+			path = AntidoteArchitectureExample;
 			sourceTree = "<group>";
 		};
-		1CBC3B4C1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests */ = {
+		1CBC3B4C1D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				1CBC3B4D1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.swift */,
+				1CBC3B4D1D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleTests.swift */,
 				1CBC3B4F1D8BF7FD00BAA6A9 /* Info.plist */,
 			);
-			path = AntodoteArchitectureExampleTests;
+			path = AntidoteArchitectureExampleTests;
 			sourceTree = "<group>";
 		};
-		1CBC3B571D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests */ = {
+		1CBC3B571D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1CBC3B581D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.swift */,
+				1CBC3B581D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleUITests.swift */,
 				1CBC3B5A1D8BF7FD00BAA6A9 /* Info.plist */,
 			);
-			path = AntodoteArchitectureExampleUITests;
+			path = AntidoteArchitectureExampleUITests;
 			sourceTree = "<group>";
 		};
-		1CBC3B661D8BF80B00BAA6A9 /* Master-Detail Flow */ = {
+		1CBC3B661D8BF80B00BAA6A9 /* Master Detail Flow */ = {
 			isa = PBXGroup;
 			children = (
-				1CBC3B7A1D8BF95500BAA6A9 /* Master-Detail.storyboard */,
-				1CBC3B701D8BF8FD00BAA6A9 /* Master-DetailFlowCoordinator.swift */,
+				1CBC3B7A1D8BF95500BAA6A9 /* MasterDetail.storyboard */,
+				1CBC3B701D8BF8FD00BAA6A9 /* MasterDetailFlowCoordinator.swift */,
+				1CBC3BB11D8C138200BAA6A9 /* MasterDetailViewControllersFactory.swift */,
+				1CBC3BA81D8C12B200BAA6A9 /* Master Detail */,
 			);
-			name = "Master-Detail Flow";
+			name = "Master Detail Flow";
 			sourceTree = "<group>";
 		};
 		1CBC3B671D8BF81600BAA6A9 /* Tabbed Flow */ = {
@@ -172,6 +224,8 @@
 			children = (
 				1CBC3B7E1D8BF96800BAA6A9 /* Tabbed.storyboard */,
 				1CBC3B741D8BF91400BAA6A9 /* TabbedFlowCoordinator.swift */,
+				1CBC3BB51D8C13A200BAA6A9 /* TabbedViewControllersFactory.swift */,
+				1CBC3BAE1D8C12F400BAA6A9 /* Tabbed */,
 			);
 			name = "Tabbed Flow";
 			sourceTree = "<group>";
@@ -180,24 +234,27 @@
 			isa = PBXGroup;
 			children = (
 				1CBC3B951D8BFBEB00BAA6A9 /* Application */,
+				1CBC3B981D8C050000BAA6A9 /* Authentication Flow */,
 				1CBC3B811D8BF98C00BAA6A9 /* Menu Flow */,
-				1CBC3B661D8BF80B00BAA6A9 /* Master-Detail Flow */,
-				1CBC3B691D8BF82E00BAA6A9 /* Page-Based Flow */,
+				1CBC3B661D8BF80B00BAA6A9 /* Master Detail Flow */,
+				1CBC3B691D8BF82E00BAA6A9 /* Page Based Flow */,
 				1CBC3B671D8BF81600BAA6A9 /* Tabbed Flow */,
-				1CBC3B6B1D8BF89700BAA6A9 /* Profile Flow */,
 				1CBC3B6A1D8BF88A00BAA6A9 /* User Flow */,
+				1CBC3B6B1D8BF89700BAA6A9 /* Profile Flow */,
 				1CBC3B801D8BF97A00BAA6A9 /* Settings Flow */,
 			);
 			name = Flows;
 			sourceTree = "<group>";
 		};
-		1CBC3B691D8BF82E00BAA6A9 /* Page-Based Flow */ = {
+		1CBC3B691D8BF82E00BAA6A9 /* Page Based Flow */ = {
 			isa = PBXGroup;
 			children = (
-				1CBC3B7C1D8BF95F00BAA6A9 /* Page-Based.storyboard */,
-				1CBC3B721D8BF90800BAA6A9 /* Page-BasedFlowCoordinator.swift */,
+				1CBC3B7C1D8BF95F00BAA6A9 /* PageBased.storyboard */,
+				1CBC3B721D8BF90800BAA6A9 /* PageBasedFlowCoordinator.swift */,
+				1CBC3BB31D8C139400BAA6A9 /* PageBasedViewControllersFactory.swift */,
+				1CBC3BAB1D8C12D500BAA6A9 /* Page Based */,
 			);
-			name = "Page-Based Flow";
+			name = "Page Based Flow";
 			sourceTree = "<group>";
 		};
 		1CBC3B6A1D8BF88A00BAA6A9 /* User Flow */ = {
@@ -205,6 +262,9 @@
 			children = (
 				1CBC3B781D8BF92F00BAA6A9 /* User.storyboard */,
 				1CBC3B6E1D8BF8EC00BAA6A9 /* UserFlowCoordinator.swift */,
+				1CBC3BBD1D8C179800BAA6A9 /* UserViewControllersFactory.swift */,
+				1CBC3BB71D8C174800BAA6A9 /* Users */,
+				1CBC3BB81D8C174D00BAA6A9 /* User */,
 			);
 			name = "User Flow";
 			sourceTree = "<group>";
@@ -232,8 +292,8 @@
 			children = (
 				1CBC3B821D8BF99800BAA6A9 /* Menu.storyboard */,
 				1CBC3B841D8BF9A700BAA6A9 /* MenuFlowCoordinator.swift */,
-				1CBC3B8A1D8BFAD600BAA6A9 /* Menu */,
 				1CBC3B911D8BFB8100BAA6A9 /* MenuViewControllersFactory.swift */,
+				1CBC3B8A1D8BFAD600BAA6A9 /* Menu */,
 			);
 			name = "Menu Flow";
 			sourceTree = "<group>";
@@ -259,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				1CBC3B8D1D8BFB1B00BAA6A9 /* UIViewController+Extensions.swift */,
+				1CBC3BA31D8C065A00BAA6A9 /* UIWindow+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -268,64 +329,164 @@
 			children = (
 				1CBC3B3C1D8BF7FD00BAA6A9 /* Main.storyboard */,
 				1CBC3B381D8BF7FD00BAA6A9 /* AppDelegate.swift */,
+				1CBC3B961D8BFEF000BAA6A9 /* AppCoordinator.swift */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		1CBC3B981D8C050000BAA6A9 /* Authentication Flow */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3B991D8C051800BAA6A9 /* Authentication.storyboard */,
+				1CBC3B9B1D8C052400BAA6A9 /* AuthenticationFlowCoordinator.swift */,
+				1CBC3B9D1D8C053200BAA6A9 /* AuthenticationViewControllersFactory.swift */,
+				1CBC3B9F1D8C058C00BAA6A9 /* Sign In */,
+			);
+			name = "Authentication Flow";
+			sourceTree = "<group>";
+		};
+		1CBC3B9F1D8C058C00BAA6A9 /* Sign In */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3BA11D8C05AF00BAA6A9 /* SignInViewController.swift */,
+			);
+			name = "Sign In";
+			sourceTree = "<group>";
+		};
+		1CBC3BA51D8C0E9600BAA6A9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3BA61D8C0EAF00BAA6A9 /* CoordinatorProtocol.swift */,
+			);
+			name = Protocols;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1CBC3BA81D8C12B200BAA6A9 /* Master Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3BA91D8C12CA00BAA6A9 /* MasterDetailViewController.swift */,
+			);
+			name = "Master Detail";
+			sourceTree = "<group>";
+		};
+		1CBC3BAB1D8C12D500BAA6A9 /* Page Based */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3BAC1D8C12E500BAA6A9 /* PageBasedViewController.swift */,
+			);
+			name = "Page Based";
+			sourceTree = "<group>";
+		};
+		1CBC3BAE1D8C12F400BAA6A9 /* Tabbed */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3BAF1D8C130900BAA6A9 /* TabbedController.swift */,
+			);
+			name = Tabbed;
+			sourceTree = "<group>";
+		};
+		1CBC3BB71D8C174800BAA6A9 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3BB91D8C175F00BAA6A9 /* UsersTableViewController.swift */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		1CBC3BB81D8C174D00BAA6A9 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3BBB1D8C176900BAA6A9 /* UserViewController.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		365262504CE33CEAC32BEC42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				248D89928567FC17D63A37BE /* Pods_AntidoteArchitectureExample.framework */,
+				09D9D841E8183DD838760B90 /* Pods_AntidoteArchitectureExampleTests.framework */,
+				84541D6BF6B0912DB8E8B854 /* Pods_AntidoteArchitectureExampleUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5625388E16559A81B98A5130 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2D29B4D197CAC34B6C30CEC /* Pods-AntidoteArchitectureExample.debug.xcconfig */,
+				E8A9786335D0E797009A8D34 /* Pods-AntidoteArchitectureExample.release.xcconfig */,
+				1E3F400F609E99060388E535 /* Pods-AntidoteArchitectureExampleTests.debug.xcconfig */,
+				7208FD6F0DC1C2AE1062EBC5 /* Pods-AntidoteArchitectureExampleTests.release.xcconfig */,
+				2396F263AB5CCEAC0F72419B /* Pods-AntidoteArchitectureExampleUITests.debug.xcconfig */,
+				50D07AA85E49807B15837996 /* Pods-AntidoteArchitectureExampleUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1CBC3B341D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */ = {
+		1CBC3B341D8BF7FD00BAA6A9 /* AntidoteArchitectureExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1CBC3B5D1D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExample" */;
+			buildConfigurationList = 1CBC3B5D1D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntidoteArchitectureExample" */;
 			buildPhases = (
+				C8A7FB9A80EDB225497C4FD1 /* [CP] Check Pods Manifest.lock */,
 				1CBC3B311D8BF7FD00BAA6A9 /* Sources */,
 				1CBC3B321D8BF7FD00BAA6A9 /* Frameworks */,
 				1CBC3B331D8BF7FD00BAA6A9 /* Resources */,
+				D61123BACAB728A1BA192498 /* [CP] Embed Pods Frameworks */,
+				A5FE29F2F7CF807E207887A7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AntodoteArchitectureExample;
-			productName = AntodoteArchitectureExample;
-			productReference = 1CBC3B351D8BF7FD00BAA6A9 /* AntodoteArchitectureExample.app */;
+			name = AntidoteArchitectureExample;
+			productName = AntidoteArchitectureExample;
+			productReference = 1CBC3B351D8BF7FD00BAA6A9 /* AntidoteArchitectureExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1CBC3B481D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests */ = {
+		1CBC3B481D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1CBC3B601D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExampleTests" */;
+			buildConfigurationList = 1CBC3B601D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntidoteArchitectureExampleTests" */;
 			buildPhases = (
+				F62CAA5F138981F09903E863 /* [CP] Check Pods Manifest.lock */,
 				1CBC3B451D8BF7FD00BAA6A9 /* Sources */,
 				1CBC3B461D8BF7FD00BAA6A9 /* Frameworks */,
 				1CBC3B471D8BF7FD00BAA6A9 /* Resources */,
+				0A379272638BE2062DB6EFB0 /* [CP] Embed Pods Frameworks */,
+				241D6FFFF4C20FF99E8BF170 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				1CBC3B4B1D8BF7FD00BAA6A9 /* PBXTargetDependency */,
 			);
-			name = AntodoteArchitectureExampleTests;
-			productName = AntodoteArchitectureExampleTests;
-			productReference = 1CBC3B491D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.xctest */;
+			name = AntidoteArchitectureExampleTests;
+			productName = AntidoteArchitectureExampleTests;
+			productReference = 1CBC3B491D8BF7FD00BAA6A9 /* AntidoteArchitectureExample.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1CBC3B531D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests */ = {
+		1CBC3B531D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1CBC3B631D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExampleUITests" */;
+			buildConfigurationList = 1CBC3B631D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntidoteArchitectureExampleUITests" */;
 			buildPhases = (
+				9D17459BA33B7F4DB229583E /* [CP] Check Pods Manifest.lock */,
 				1CBC3B501D8BF7FD00BAA6A9 /* Sources */,
 				1CBC3B511D8BF7FD00BAA6A9 /* Frameworks */,
 				1CBC3B521D8BF7FD00BAA6A9 /* Resources */,
+				BABF41F99D435791A26E2B6C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				1CBC3B561D8BF7FD00BAA6A9 /* PBXTargetDependency */,
 			);
-			name = AntodoteArchitectureExampleUITests;
-			productName = AntodoteArchitectureExampleUITests;
-			productReference = 1CBC3B541D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.xctest */;
+			name = AntidoteArchitectureExampleUITests;
+			productName = AntidoteArchitectureExampleUITests;
+			productReference = 1CBC3B541D8BF7FD00BAA6A9 /* AntidoteArchitectureExample.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -351,7 +512,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1CBC3B301D8BF7FD00BAA6A9 /* Build configuration list for PBXProject "AntodoteArchitectureExample" */;
+			buildConfigurationList = 1CBC3B301D8BF7FD00BAA6A9 /* Build configuration list for PBXProject "AntidoteArchitectureExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -364,9 +525,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1CBC3B341D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */,
-				1CBC3B481D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests */,
-				1CBC3B531D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests */,
+				1CBC3B341D8BF7FD00BAA6A9 /* AntidoteArchitectureExample */,
+				1CBC3B481D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleTests */,
+				1CBC3B531D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -376,13 +537,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CBC3B7D1D8BF95F00BAA6A9 /* Page-Based.storyboard in Resources */,
+				1CBC3B7D1D8BF95F00BAA6A9 /* PageBased.storyboard in Resources */,
 				1CBC3B431D8BF7FD00BAA6A9 /* LaunchScreen.storyboard in Resources */,
 				1CBC3B7F1D8BF96800BAA6A9 /* Tabbed.storyboard in Resources */,
+				1CBC3B9A1D8C051800BAA6A9 /* Authentication.storyboard in Resources */,
 				1CBC3B831D8BF99800BAA6A9 /* Menu.storyboard in Resources */,
 				1CBC3B791D8BF92F00BAA6A9 /* User.storyboard in Resources */,
 				1CBC3B401D8BF7FD00BAA6A9 /* Assets.xcassets in Resources */,
-				1CBC3B7B1D8BF95500BAA6A9 /* Master-Detail.storyboard in Resources */,
+				1CBC3B7B1D8BF95500BAA6A9 /* MasterDetail.storyboard in Resources */,
 				1CBC3B771D8BF92700BAA6A9 /* Profile.storyboard in Resources */,
 				1CBC3B3E1D8BF7FD00BAA6A9 /* Main.storyboard in Resources */,
 				1CBC3B891D8BFA0100BAA6A9 /* Settings.storyboard in Resources */,
@@ -405,6 +567,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A379272638BE2062DB6EFB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AntidoteArchitectureExampleTests/Pods-AntidoteArchitectureExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		241D6FFFF4C20FF99E8BF170 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AntidoteArchitectureExampleTests/Pods-AntidoteArchitectureExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D17459BA33B7F4DB229583E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A5FE29F2F7CF807E207887A7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AntidoteArchitectureExample/Pods-AntidoteArchitectureExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BABF41F99D435791A26E2B6C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AntidoteArchitectureExampleUITests/Pods-AntidoteArchitectureExampleUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8A7FB9A80EDB225497C4FD1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D61123BACAB728A1BA192498 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AntidoteArchitectureExample/Pods-AntidoteArchitectureExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F62CAA5F138981F09903E863 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1CBC3B311D8BF7FD00BAA6A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -412,15 +697,30 @@
 			files = (
 				1CBC3B6D1D8BF8DC00BAA6A9 /* ProfileFlowCoordinator.swift in Sources */,
 				1CBC3B921D8BFB8100BAA6A9 /* MenuViewControllersFactory.swift in Sources */,
+				1CBC3B9E1D8C053200BAA6A9 /* AuthenticationViewControllersFactory.swift in Sources */,
+				1CBC3B971D8BFEF000BAA6A9 /* AppCoordinator.swift in Sources */,
 				1CBC3B751D8BF91400BAA6A9 /* TabbedFlowCoordinator.swift in Sources */,
+				1CBC3BA41D8C065A00BAA6A9 /* UIWindow+Extensions.swift in Sources */,
 				1CBC3B8E1D8BFB1B00BAA6A9 /* UIViewController+Extensions.swift in Sources */,
 				1CBC3B391D8BF7FD00BAA6A9 /* AppDelegate.swift in Sources */,
+				1CBC3BAA1D8C12CA00BAA6A9 /* MasterDetailViewController.swift in Sources */,
 				1CBC3B6F1D8BF8EC00BAA6A9 /* UserFlowCoordinator.swift in Sources */,
 				1CBC3B851D8BF9A700BAA6A9 /* MenuFlowCoordinator.swift in Sources */,
 				1CBC3B8C1D8BFAE800BAA6A9 /* MenuTableViewController.swift in Sources */,
+				1CBC3BB41D8C139400BAA6A9 /* PageBasedViewControllersFactory.swift in Sources */,
 				1CBC3B871D8BF9F700BAA6A9 /* SettingsFlowCoordinator.swift in Sources */,
-				1CBC3B711D8BF8FD00BAA6A9 /* Master-DetailFlowCoordinator.swift in Sources */,
-				1CBC3B731D8BF90800BAA6A9 /* Page-BasedFlowCoordinator.swift in Sources */,
+				1CBC3B9C1D8C052400BAA6A9 /* AuthenticationFlowCoordinator.swift in Sources */,
+				1CBC3BBC1D8C176900BAA6A9 /* UserViewController.swift in Sources */,
+				1CBC3BBE1D8C179800BAA6A9 /* UserViewControllersFactory.swift in Sources */,
+				1CBC3BB21D8C138200BAA6A9 /* MasterDetailViewControllersFactory.swift in Sources */,
+				1CBC3BA21D8C05AF00BAA6A9 /* SignInViewController.swift in Sources */,
+				1CBC3BAD1D8C12E500BAA6A9 /* PageBasedViewController.swift in Sources */,
+				1CBC3BA71D8C0EAF00BAA6A9 /* CoordinatorProtocol.swift in Sources */,
+				1CBC3B711D8BF8FD00BAA6A9 /* MasterDetailFlowCoordinator.swift in Sources */,
+				1CBC3B731D8BF90800BAA6A9 /* PageBasedFlowCoordinator.swift in Sources */,
+				1CBC3BB61D8C13A200BAA6A9 /* TabbedViewControllersFactory.swift in Sources */,
+				1CBC3BB01D8C130900BAA6A9 /* TabbedController.swift in Sources */,
+				1CBC3BBA1D8C175F00BAA6A9 /* UsersTableViewController.swift in Sources */,
 				1CBC3B941D8BFBDD00BAA6A9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,7 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CBC3B4E1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.swift in Sources */,
+				1CBC3B4E1D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +737,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CBC3B591D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.swift in Sources */,
+				1CBC3B591D8BF7FD00BAA6A9 /* AntidoteArchitectureExampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,12 +746,12 @@
 /* Begin PBXTargetDependency section */
 		1CBC3B4B1D8BF7FD00BAA6A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1CBC3B341D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */;
+			target = 1CBC3B341D8BF7FD00BAA6A9 /* AntidoteArchitectureExample */;
 			targetProxy = 1CBC3B4A1D8BF7FD00BAA6A9 /* PBXContainerItemProxy */;
 		};
 		1CBC3B561D8BF7FD00BAA6A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1CBC3B341D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */;
+			target = 1CBC3B341D8BF7FD00BAA6A9 /* AntidoteArchitectureExample */;
 			targetProxy = 1CBC3B551D8BF7FD00BAA6A9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -563,76 +863,82 @@
 		};
 		1CBC3B5E1D8BF7FD00BAA6A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2D29B4D197CAC34B6C30CEC /* Pods-AntidoteArchitectureExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = AntodoteArchitectureExample/Info.plist;
+				INFOPLIST_FILE = AntidoteArchitectureExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExample;
+				PRODUCT_NAME = AntidoteArchitectureExample;
 			};
 			name = Debug;
 		};
 		1CBC3B5F1D8BF7FD00BAA6A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8A9786335D0E797009A8D34 /* Pods-AntidoteArchitectureExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = AntodoteArchitectureExample/Info.plist;
+				INFOPLIST_FILE = AntidoteArchitectureExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExample;
+				PRODUCT_NAME = AntidoteArchitectureExample;
 			};
 			name = Release;
 		};
 		1CBC3B611D8BF7FD00BAA6A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E3F400F609E99060388E535 /* Pods-AntidoteArchitectureExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AntodoteArchitectureExampleTests/Info.plist;
+				INFOPLIST_FILE = AntidoteArchitectureExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AntodoteArchitectureExample.app/AntodoteArchitectureExample";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExampleTests;
+				PRODUCT_NAME = AntidoteArchitectureExample;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AntidoteArchitectureExample.app/AntidoteArchitectureExample";
 			};
 			name = Debug;
 		};
 		1CBC3B621D8BF7FD00BAA6A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7208FD6F0DC1C2AE1062EBC5 /* Pods-AntidoteArchitectureExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AntodoteArchitectureExampleTests/Info.plist;
+				INFOPLIST_FILE = AntidoteArchitectureExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AntodoteArchitectureExample.app/AntodoteArchitectureExample";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExampleTests;
+				PRODUCT_NAME = AntidoteArchitectureExample;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AntidoteArchitectureExample.app/AntidoteArchitectureExample";
 			};
 			name = Release;
 		};
 		1CBC3B641D8BF7FD00BAA6A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2396F263AB5CCEAC0F72419B /* Pods-AntidoteArchitectureExampleUITests.debug.xcconfig */;
 			buildSettings = {
-				INFOPLIST_FILE = AntodoteArchitectureExampleUITests/Info.plist;
+				INFOPLIST_FILE = AntidoteArchitectureExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = AntodoteArchitectureExample;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExampleUITests;
+				PRODUCT_NAME = AntidoteArchitectureExample;
+				TEST_TARGET_NAME = AntidoteArchitectureExample;
 			};
 			name = Debug;
 		};
 		1CBC3B651D8BF7FD00BAA6A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50D07AA85E49807B15837996 /* Pods-AntidoteArchitectureExampleUITests.release.xcconfig */;
 			buildSettings = {
-				INFOPLIST_FILE = AntodoteArchitectureExampleUITests/Info.plist;
+				INFOPLIST_FILE = AntidoteArchitectureExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = AntodoteArchitectureExample;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExampleUITests;
+				PRODUCT_NAME = AntidoteArchitectureExample;
+				TEST_TARGET_NAME = AntidoteArchitectureExample;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1CBC3B301D8BF7FD00BAA6A9 /* Build configuration list for PBXProject "AntodoteArchitectureExample" */ = {
+		1CBC3B301D8BF7FD00BAA6A9 /* Build configuration list for PBXProject "AntidoteArchitectureExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1CBC3B5B1D8BF7FD00BAA6A9 /* Debug */,
@@ -641,29 +947,32 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1CBC3B5D1D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExample" */ = {
+		1CBC3B5D1D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntidoteArchitectureExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1CBC3B5E1D8BF7FD00BAA6A9 /* Debug */,
 				1CBC3B5F1D8BF7FD00BAA6A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		1CBC3B601D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExampleTests" */ = {
+		1CBC3B601D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntidoteArchitectureExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1CBC3B611D8BF7FD00BAA6A9 /* Debug */,
 				1CBC3B621D8BF7FD00BAA6A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		1CBC3B631D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExampleUITests" */ = {
+		1CBC3B631D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntidoteArchitectureExampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1CBC3B641D8BF7FD00BAA6A9 /* Debug */,
 				1CBC3B651D8BF7FD00BAA6A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

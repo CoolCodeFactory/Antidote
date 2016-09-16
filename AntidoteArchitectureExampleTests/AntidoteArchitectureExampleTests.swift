@@ -1,15 +1,15 @@
 //
-//  AntodoteArchitectureExampleTests.swift
-//  AntodoteArchitectureExampleTests
+//  AntidoteArchitectureExampleTests.swift
+//  AntidoteArchitectureExampleTests
 //
 //  Created by Dmitriy Utmanov on 16/09/16.
 //  Copyright © 2016 Dmitry Utmanov. All rights reserved.
 //
 
 import XCTest
-@testable import AntodoteArchitectureExample
+@testable import AntidoteArchitectureExample
 
-class AntodoteArchitectureExampleTests: XCTestCase {
+class AntidoteArchitectureExampleTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

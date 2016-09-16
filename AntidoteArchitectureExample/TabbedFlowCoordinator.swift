@@ -1,5 +1,5 @@
 //
-//  Master-DetailFlowCoordinator.swift
+//  TabbedFlowCoordinator.swift
 //  AntidoteArchitectureExample
 //
 //  Created by Dmitriy Utmanov on 16/09/16.
@@ -9,7 +9,8 @@
 import UIKit
 
 
-class MasterDetailFlowCoordinator: ModalCoordinatorProtocol {
+
+class TabbedFlowCoordinator: ModalCoordinatorProtocol {
     
     var childCoordinators = [CoordinatorProtocol]()
     
@@ -17,7 +18,7 @@ class MasterDetailFlowCoordinator: ModalCoordinatorProtocol {
     
     var closeHandler: () -> () = { fatalError() }
     
-    let viewControllersFactory = MasterDetailViewControllersFactory()
+    let viewControllersFactory = TabbedViewControllersFactory()
 
     weak var presentingViewController: UIViewController!
     
@@ -26,8 +27,8 @@ class MasterDetailFlowCoordinator: ModalCoordinatorProtocol {
     }
     
     func start(animated animated: Bool) {
-        let viewController = viewControllersFactory.masterDetailViewController()
-        let userFlowCoordinator = UserFlowCoordinator(splitViewController: viewController)
+        let viewController = viewControllersFactory.tabbedController()
+        let userFlowCoordinator = UserFlowCoordinator(tabBarController: viewController)
         userFlowCoordinator.start(animated: animated)
         userFlowCoordinator.closeHandler = {
             viewController.dismissViewControllerAnimated(animated, completion: nil)

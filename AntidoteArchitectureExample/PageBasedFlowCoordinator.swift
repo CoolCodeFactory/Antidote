@@ -6,4 +6,27 @@
 //  Copyright © 2016 Dmitry Utmanov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+
+class PageBasedFlowCoordinator: ModalCoordinatorProtocol {
+    
+    var childCoordinators = [CoordinatorProtocol]()
+    
+    weak var navigationController: UINavigationController?
+    
+    var closeHandler: () -> () = { fatalError() }
+    
+    let viewControllersFactory = PageBasedViewControllersFactory()
+
+    weak var presentingViewController: UIViewController!
+    
+    required init(presentingViewController: UIViewController) {
+        self.presentingViewController = presentingViewController
+    }
+    
+    func start(animated animated: Bool) {
+        let viewController = viewControllersFactory.pageBasedViewController()
+        presentingViewController.presentViewController(viewController, animated: true, completion: nil)
+    }
+}

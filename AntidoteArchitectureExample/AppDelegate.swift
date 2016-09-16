@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AntodoteArchitectureExample
+//  AntidoteArchitectureExample
 //
 //  Created by Dmitriy Utmanov on 16/09/16.
 //  Copyright © 2016 Dmitry Utmanov. All rights reserved.
@@ -13,9 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var appCoordinator: AppCoordinator!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        if let window = window {
+            appCoordinator = AppCoordinator(window: window)
+            appCoordinator.start(animated: true)
+        }
         return true
     }
 
