@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CBC3B391D8BF7FD00BAA6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B381D8BF7FD00BAA6A9 /* AppDelegate.swift */; };
+		1CBC3B3B1D8BF7FD00BAA6A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B3A1D8BF7FD00BAA6A9 /* ViewController.swift */; };
+		1CBC3B3E1D8BF7FD00BAA6A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B3C1D8BF7FD00BAA6A9 /* Main.storyboard */; };
+		1CBC3B401D8BF7FD00BAA6A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B3F1D8BF7FD00BAA6A9 /* Assets.xcassets */; };
+		1CBC3B431D8BF7FD00BAA6A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBC3B411D8BF7FD00BAA6A9 /* LaunchScreen.storyboard */; };
+		1CBC3B4E1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B4D1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.swift */; };
+		1CBC3B591D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3B581D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1CBC3B4A1D8BF7FD00BAA6A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CBC3B2D1D8BF7FD00BAA6A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CBC3B341D8BF7FD00BAA6A9;
+			remoteInfo = AntodoteArchitectureExample;
+		};
+		1CBC3B551D8BF7FD00BAA6A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CBC3B2D1D8BF7FD00BAA6A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CBC3B341D8BF7FD00BAA6A9;
+			remoteInfo = AntodoteArchitectureExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1CBC3B351D8BF7FD00BAA6A9 /* AntodoteArchitectureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntodoteArchitectureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CBC3B381D8BF7FD00BAA6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CBC3B3A1D8BF7FD00BAA6A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1CBC3B3D1D8BF7FD00BAA6A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1CBC3B3F1D8BF7FD00BAA6A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CBC3B421D8BF7FD00BAA6A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1CBC3B441D8BF7FD00BAA6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CBC3B491D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntodoteArchitectureExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CBC3B4D1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntodoteArchitectureExampleTests.swift; sourceTree = "<group>"; };
+		1CBC3B4F1D8BF7FD00BAA6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CBC3B541D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntodoteArchitectureExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CBC3B581D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntodoteArchitectureExampleUITests.swift; sourceTree = "<group>"; };
+		1CBC3B5A1D8BF7FD00BAA6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CBC3B321D8BF7FD00BAA6A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CBC3B461D8BF7FD00BAA6A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CBC3B511D8BF7FD00BAA6A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CBC3B2C1D8BF7FD00BAA6A9 = {
+			isa = PBXGroup;
+			children = (
+				1CBC3B371D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */,
+				1CBC3B4C1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests */,
+				1CBC3B571D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests */,
+				1CBC3B361D8BF7FD00BAA6A9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1CBC3B361D8BF7FD00BAA6A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3B351D8BF7FD00BAA6A9 /* AntodoteArchitectureExample.app */,
+				1CBC3B491D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.xctest */,
+				1CBC3B541D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CBC3B371D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3B381D8BF7FD00BAA6A9 /* AppDelegate.swift */,
+				1CBC3B3A1D8BF7FD00BAA6A9 /* ViewController.swift */,
+				1CBC3B3C1D8BF7FD00BAA6A9 /* Main.storyboard */,
+				1CBC3B3F1D8BF7FD00BAA6A9 /* Assets.xcassets */,
+				1CBC3B411D8BF7FD00BAA6A9 /* LaunchScreen.storyboard */,
+				1CBC3B441D8BF7FD00BAA6A9 /* Info.plist */,
+			);
+			path = AntodoteArchitectureExample;
+			sourceTree = "<group>";
+		};
+		1CBC3B4C1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3B4D1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.swift */,
+				1CBC3B4F1D8BF7FD00BAA6A9 /* Info.plist */,
+			);
+			path = AntodoteArchitectureExampleTests;
+			sourceTree = "<group>";
+		};
+		1CBC3B571D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1CBC3B581D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.swift */,
+				1CBC3B5A1D8BF7FD00BAA6A9 /* Info.plist */,
+			);
+			path = AntodoteArchitectureExampleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CBC3B341D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CBC3B5D1D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExample" */;
+			buildPhases = (
+				1CBC3B311D8BF7FD00BAA6A9 /* Sources */,
+				1CBC3B321D8BF7FD00BAA6A9 /* Frameworks */,
+				1CBC3B331D8BF7FD00BAA6A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AntodoteArchitectureExample;
+			productName = AntodoteArchitectureExample;
+			productReference = 1CBC3B351D8BF7FD00BAA6A9 /* AntodoteArchitectureExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1CBC3B481D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CBC3B601D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExampleTests" */;
+			buildPhases = (
+				1CBC3B451D8BF7FD00BAA6A9 /* Sources */,
+				1CBC3B461D8BF7FD00BAA6A9 /* Frameworks */,
+				1CBC3B471D8BF7FD00BAA6A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CBC3B4B1D8BF7FD00BAA6A9 /* PBXTargetDependency */,
+			);
+			name = AntodoteArchitectureExampleTests;
+			productName = AntodoteArchitectureExampleTests;
+			productReference = 1CBC3B491D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1CBC3B531D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CBC3B631D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExampleUITests" */;
+			buildPhases = (
+				1CBC3B501D8BF7FD00BAA6A9 /* Sources */,
+				1CBC3B511D8BF7FD00BAA6A9 /* Frameworks */,
+				1CBC3B521D8BF7FD00BAA6A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CBC3B561D8BF7FD00BAA6A9 /* PBXTargetDependency */,
+			);
+			name = AntodoteArchitectureExampleUITests;
+			productName = AntodoteArchitectureExampleUITests;
+			productReference = 1CBC3B541D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CBC3B2D1D8BF7FD00BAA6A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Dmitry Utmanov";
+				TargetAttributes = {
+					1CBC3B341D8BF7FD00BAA6A9 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					1CBC3B481D8BF7FD00BAA6A9 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 1CBC3B341D8BF7FD00BAA6A9;
+					};
+					1CBC3B531D8BF7FD00BAA6A9 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 1CBC3B341D8BF7FD00BAA6A9;
+					};
+				};
+			};
+			buildConfigurationList = 1CBC3B301D8BF7FD00BAA6A9 /* Build configuration list for PBXProject "AntodoteArchitectureExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1CBC3B2C1D8BF7FD00BAA6A9;
+			productRefGroup = 1CBC3B361D8BF7FD00BAA6A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CBC3B341D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */,
+				1CBC3B481D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests */,
+				1CBC3B531D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CBC3B331D8BF7FD00BAA6A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CBC3B431D8BF7FD00BAA6A9 /* LaunchScreen.storyboard in Resources */,
+				1CBC3B401D8BF7FD00BAA6A9 /* Assets.xcassets in Resources */,
+				1CBC3B3E1D8BF7FD00BAA6A9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CBC3B471D8BF7FD00BAA6A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CBC3B521D8BF7FD00BAA6A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CBC3B311D8BF7FD00BAA6A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CBC3B3B1D8BF7FD00BAA6A9 /* ViewController.swift in Sources */,
+				1CBC3B391D8BF7FD00BAA6A9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CBC3B451D8BF7FD00BAA6A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CBC3B4E1D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CBC3B501D8BF7FD00BAA6A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CBC3B591D8BF7FD00BAA6A9 /* AntodoteArchitectureExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CBC3B4B1D8BF7FD00BAA6A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CBC3B341D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */;
+			targetProxy = 1CBC3B4A1D8BF7FD00BAA6A9 /* PBXContainerItemProxy */;
+		};
+		1CBC3B561D8BF7FD00BAA6A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CBC3B341D8BF7FD00BAA6A9 /* AntodoteArchitectureExample */;
+			targetProxy = 1CBC3B551D8BF7FD00BAA6A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1CBC3B3C1D8BF7FD00BAA6A9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CBC3B3D1D8BF7FD00BAA6A9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1CBC3B411D8BF7FD00BAA6A9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CBC3B421D8BF7FD00BAA6A9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1CBC3B5B1D8BF7FD00BAA6A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CBC3B5C1D8BF7FD00BAA6A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1CBC3B5E1D8BF7FD00BAA6A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AntodoteArchitectureExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1CBC3B5F1D8BF7FD00BAA6A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AntodoteArchitectureExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1CBC3B611D8BF7FD00BAA6A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AntodoteArchitectureExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AntodoteArchitectureExample.app/AntodoteArchitectureExample";
+			};
+			name = Debug;
+		};
+		1CBC3B621D8BF7FD00BAA6A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AntodoteArchitectureExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AntodoteArchitectureExample.app/AntodoteArchitectureExample";
+			};
+			name = Release;
+		};
+		1CBC3B641D8BF7FD00BAA6A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AntodoteArchitectureExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AntodoteArchitectureExample;
+			};
+			name = Debug;
+		};
+		1CBC3B651D8BF7FD00BAA6A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AntodoteArchitectureExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntodoteArchitectureExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AntodoteArchitectureExample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CBC3B301D8BF7FD00BAA6A9 /* Build configuration list for PBXProject "AntodoteArchitectureExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CBC3B5B1D8BF7FD00BAA6A9 /* Debug */,
+				1CBC3B5C1D8BF7FD00BAA6A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CBC3B5D1D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CBC3B5E1D8BF7FD00BAA6A9 /* Debug */,
+				1CBC3B5F1D8BF7FD00BAA6A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1CBC3B601D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CBC3B611D8BF7FD00BAA6A9 /* Debug */,
+				1CBC3B621D8BF7FD00BAA6A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1CBC3B631D8BF7FD00BAA6A9 /* Build configuration list for PBXNativeTarget "AntodoteArchitectureExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CBC3B641D8BF7FD00BAA6A9 /* Debug */,
+				1CBC3B651D8BF7FD00BAA6A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CBC3B2D1D8BF7FD00BAA6A9 /* Project object */;
+}
