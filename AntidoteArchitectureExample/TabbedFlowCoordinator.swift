@@ -14,7 +14,7 @@ class TabbedFlowCoordinator: ModalCoordinatorProtocol {
     
     var childCoordinators = [CoordinatorProtocol]()
     
-    weak var navigationController: UINavigationController?
+    weak var navigationController: NavigationViewController?
     
     var closeHandler: () -> () = { fatalError() }
     
@@ -30,7 +30,7 @@ class TabbedFlowCoordinator: ModalCoordinatorProtocol {
         let viewController = viewControllersFactory.tabbedController()
         let userFlowCoordinator = UserFlowCoordinator(tabBarController: viewController)
         userFlowCoordinator.start(animated: animated)
-        userFlowCoordinator.closeHandler = {
+        userFlowCoordinator.closeHandler = { [unowned self, unowned userFlowCoordinator] in
             viewController.dismissViewControllerAnimated(animated, completion: nil)
             self.removeChildCoordinator(userFlowCoordinator)
         }

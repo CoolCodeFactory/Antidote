@@ -13,8 +13,8 @@ class UserViewControllersFactory {
     let storyboard = UIStoryboard(name: "User", bundle: nil)
     
     
-    func navigationController() -> UINavigationController {
-        let viewController = UINavigationController.controllerFromStoryboard(storyboard)
+    func navigationController() -> NavigationViewController {
+        let viewController = NavigationViewController.controllerFromStoryboard(storyboard)
         
         // Configure ViewController
         

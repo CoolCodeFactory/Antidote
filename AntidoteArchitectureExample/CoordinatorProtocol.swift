@@ -13,7 +13,7 @@ protocol CoordinatorProtocol: class {
     
     var childCoordinators: [CoordinatorProtocol] { get set }
 
-    weak var navigationController: UINavigationController? { get set }
+    weak var navigationController: NavigationViewController? { get set }
 
     var closeHandler: () -> () { get set }
     
@@ -30,6 +30,12 @@ extension CoordinatorProtocol {
     func removeChildCoordinator(coordinator: CoordinatorProtocol) {
         guard let index = self.childCoordinators.indexOf({$0 === coordinator}) else { return }
         childCoordinators.removeAtIndex(index)
+    }
+    
+    func removeAllChildCoordinators() {
+        for childCoordinator in childCoordinators {
+            removeChildCoordinator(childCoordinator)
+        }
     }
 }
 
@@ -70,9 +76,9 @@ protocol MasterDetailCoordinatorProtocol: CoordinatorProtocol {
 
 protocol NavigationCoordinatorProtocol: CoordinatorProtocol {
     
-    weak var presentingNavigationController: UINavigationController! { get }
+    weak var presentingNavigationController: NavigationViewController! { get }
     
-    init(presentingNavigationController: UINavigationController)
+    init(presentingNavigationController: NavigationViewController)
 }
 
 

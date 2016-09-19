@@ -13,7 +13,7 @@ class MasterDetailFlowCoordinator: ModalCoordinatorProtocol {
     
     var childCoordinators = [CoordinatorProtocol]()
     
-    weak var navigationController: UINavigationController?
+    weak var navigationController: NavigationViewController?
     
     var closeHandler: () -> () = { fatalError() }
     
@@ -29,8 +29,8 @@ class MasterDetailFlowCoordinator: ModalCoordinatorProtocol {
         let viewController = viewControllersFactory.masterDetailViewController()
         let userFlowCoordinator = UserFlowCoordinator(splitViewController: viewController)
         userFlowCoordinator.start(animated: animated)
-        userFlowCoordinator.closeHandler = {
-            viewController.dismissViewControllerAnimated(animated, completion: nil)
+        userFlowCoordinator.closeHandler = { [unowned self, unowned userFlowCoordinator, weak viewController] in
+            viewController?.dismissViewControllerAnimated(animated, completion: nil)
             self.removeChildCoordinator(userFlowCoordinator)
         }
         presentingViewController.presentViewController(viewController, animated: animated, completion: nil)

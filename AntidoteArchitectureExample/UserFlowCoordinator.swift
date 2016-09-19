@@ -13,7 +13,7 @@ class UserFlowCoordinator: CoordinatorProtocol, ModalCoordinatorProtocol, Master
     // MARK: - CoordinatorProtocol
     var childCoordinators = [CoordinatorProtocol]()
     
-    weak var navigationController: UINavigationController?
+    weak var navigationController: NavigationViewController?
     
     var closeHandler: () -> () = { fatalError() }
     
@@ -48,9 +48,9 @@ class UserFlowCoordinator: CoordinatorProtocol, ModalCoordinatorProtocol, Master
     }
     
     // MARK: - NavigationCoordinatorProtocol
-    weak var presentingNavigationController: UINavigationController!
+    weak var presentingNavigationController: NavigationViewController!
     
-    required init(presentingNavigationController: UINavigationController) {
+    required init(presentingNavigationController: NavigationViewController) {
         self.presentingNavigationController = presentingNavigationController
     }
     
@@ -59,7 +59,7 @@ class UserFlowCoordinator: CoordinatorProtocol, ModalCoordinatorProtocol, Master
         if presentingViewController != nil {
             let viewController = viewControllersFactory.usersTableViewController()
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
-            viewController.selectUserHandler = { name in
+            viewController.selectUserHandler = { [unowned self] name in
                 self.presentUserViewController(withName: name)
             }
             
@@ -73,7 +73,7 @@ class UserFlowCoordinator: CoordinatorProtocol, ModalCoordinatorProtocol, Master
         if splitViewController != nil {
             let viewController = viewControllersFactory.usersTableViewController()
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
-            viewController.selectUserHandler = { name in
+            viewController.selectUserHandler = { [unowned self] name in
                 self.presentUserViewController(withName: name)
             }
             
@@ -90,7 +90,7 @@ class UserFlowCoordinator: CoordinatorProtocol, ModalCoordinatorProtocol, Master
         if tabBarController != nil {
             let viewController = viewControllersFactory.usersTableViewController()
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
-            viewController.selectUserHandler = { name in
+            viewController.selectUserHandler = { [unowned self] name in
                 self.presentUserViewController(withName: name)
             }
             let navVC = viewControllersFactory.navigationController()
@@ -106,7 +106,7 @@ class UserFlowCoordinator: CoordinatorProtocol, ModalCoordinatorProtocol, Master
         
         if presentingNavigationController != nil {
             let viewController = viewControllersFactory.usersTableViewController()
-            viewController.selectUserHandler = { name in
+            viewController.selectUserHandler = { [unowned self] name in
                 self.presentUserViewController(withName: name)
             }
             
@@ -146,7 +146,7 @@ class UserFlowCoordinator: CoordinatorProtocol, ModalCoordinatorProtocol, Master
             
             let viewControllers = tabBarController.viewControllers!
             var filteredViewControllers = viewControllers.filter({ (viewController) -> Bool in
-                guard let navVC = viewController as? UINavigationController else { return true }
+                guard let navVC = viewController as? NavigationViewController else { return true }
                 return !(navVC.viewControllers.first is UserViewController)
             })
             filteredViewControllers.append(navVC)

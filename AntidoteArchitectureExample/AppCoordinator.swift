@@ -13,7 +13,7 @@ class AppCoordinator: RootCoordinatorProtocol {
     
     var childCoordinators = [CoordinatorProtocol]()
     
-    weak var navigationController: UINavigationController?
+    weak var navigationController: NavigationViewController?
 
     var closeHandler: () -> () = { fatalError() }
     
@@ -28,7 +28,7 @@ class AppCoordinator: RootCoordinatorProtocol {
     func start(animated animated: Bool) {
         if authenticated() {
             let menuFlowCoordinator = MenuFlowCoordinator(window: window)
-            menuFlowCoordinator.closeHandler = {
+            menuFlowCoordinator.closeHandler = { [unowned self, unowned menuFlowCoordinator] in
                 self.removeChildCoordinator(menuFlowCoordinator)
                 self.start(animated: animated)
             }
@@ -36,7 +36,7 @@ class AppCoordinator: RootCoordinatorProtocol {
             addChildCoordinator(menuFlowCoordinator)
         } else {
             let authenticationFlowCoordinator = AuthenticationFlowCoordinator(window: window)
-            authenticationFlowCoordinator.closeHandler = {
+            authenticationFlowCoordinator.closeHandler = { [unowned self, unowned authenticationFlowCoordinator] in
                 self.removeChildCoordinator(authenticationFlowCoordinator)
                 self.start(animated: animated)
             }

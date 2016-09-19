@@ -13,7 +13,7 @@ class AuthenticationFlowCoordinator: RootCoordinatorProtocol {
     
     var childCoordinators = [CoordinatorProtocol]()
     
-    weak var navigationController: UINavigationController?
+    weak var navigationController: NavigationViewController?
     
     var closeHandler: () -> () = { fatalError() }
     
@@ -25,9 +25,13 @@ class AuthenticationFlowCoordinator: RootCoordinatorProtocol {
         self.window = window
     }
     
+    deinit {
+        print("Deinit: \(self)")
+    }
+    
     func start(animated animated: Bool) {
         let viewController = viewControllersFactory.signInViewController()
-        viewController.signInHandler = {
+        viewController.signInHandler = { [unowned self] in
             self.closeHandler()
         }
         window.setRootViewController(viewController, animated: animated)
