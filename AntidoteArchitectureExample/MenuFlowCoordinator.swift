@@ -37,8 +37,8 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
         masterDetailFlowCoordinator = MasterDetailFlowCoordinator(presentingViewController: viewController)
         pageBasedFlowCoordinator = PageBasedFlowCoordinator(presentingViewController: viewController)
         tabbedFlowCoordinator = TabbedFlowCoordinator(presentingViewController: viewController)
-        userFlowCoordinator = UserFlowCoordinator(presentingViewController: viewController)
-        userModalFlowCoordinator = UserFlowCoordinator(presentingNavigationController: navVC)
+        userModalFlowCoordinator = UserFlowCoordinator(presentingViewController: viewController)
+        userFlowCoordinator = UserFlowCoordinator(presentingNavigationController: navVC)
     }
     
     func start(animated animated: Bool) {
@@ -85,8 +85,8 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
     
     func showModal(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
         let handler = { [unowned self] in
-            self.userFlowCoordinator.closeHandler = { }
-            self.userFlowCoordinator.start(animated: animated)
+            self.userModalFlowCoordinator.closeHandler = { }
+            self.userModalFlowCoordinator.start(animated: animated)
         }
         return handler
     }
@@ -94,15 +94,15 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
     func showPush(withNavigationController navigationController: NavigationViewController, animated: Bool) -> (() -> ()) {
         let handler = { [unowned self] in
             self.userFlowCoordinator.closeHandler = { }
-            self.userModalFlowCoordinator.start(animated: animated)
+            self.userFlowCoordinator.start(animated: animated)
         }
         return handler
     }
     
     func showContainer(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
         let handler = { [unowned self] in
-            self.userFlowCoordinator.closeHandler = { }
-            self.userFlowCoordinator.start(animated: animated)
+            self.userModalFlowCoordinator.closeHandler = { }
+            self.userModalFlowCoordinator.start(animated: animated)
         }
         return handler
     }
