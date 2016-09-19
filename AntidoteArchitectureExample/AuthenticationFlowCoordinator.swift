@@ -10,9 +10,7 @@ import UIKit
 
 
 class AuthenticationFlowCoordinator: RootCoordinatorProtocol {
-    
-    var childCoordinators = [CoordinatorProtocol]()
-    
+        
     weak var navigationController: NavigationViewController?
     
     var closeHandler: () -> () = { fatalError() }

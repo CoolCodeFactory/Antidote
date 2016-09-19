@@ -62,6 +62,22 @@ class NavigationViewController: UINavigationController {
         print("deinit")
         print("viewControllers: \(self.dynamicType)")
     }
+    
+    class ObservedViewController {
+        unowned let viewController: UIViewController
+        let completionHandler: (() -> ())
+        
+        init(viewController: UIViewController, completionHandler: (() -> ())) {
+            self.viewController = viewController
+            self.completionHandler = completionHandler
+        }
+    }
+    var observedViewControllers = [ObservedViewController]()
+    
+    func observeCurrentViewController(completionHandler: () -> ()) {
+        let observedViewController = ObservedViewController(viewController: topViewController!, completionHandler: completionHandler)
+        observedViewControllers.append(observedViewController)
+    }
 }
 
 extension NavigationViewController: UINavigationControllerDelegate {
@@ -79,6 +95,15 @@ extension NavigationViewController: UINavigationControllerDelegate {
             operation = NavigationViewControllerOperationType.None
         }
         
-        print("did \(operation) ViewController: \(viewController.self)")
+        if operation == .Pop {
+            for observedViewController in observedViewControllers {
+                if viewController == observedViewController.viewController {
+                    observedViewController.completionHandler()
+                    guard let index = observedViewControllers.indexOf({ $0 === observedViewController }) else { break }
+                    observedViewControllers.removeAtIndex(index)
+                }
+            }
+            print(observedViewControllers)
+        }
     }
 }

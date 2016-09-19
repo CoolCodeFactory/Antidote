@@ -11,32 +11,11 @@ import UIKit
 
 protocol CoordinatorProtocol: class {
     
-    var childCoordinators: [CoordinatorProtocol] { get set }
-
     weak var navigationController: NavigationViewController? { get set }
 
     var closeHandler: () -> () { get set }
     
     func start(animated animated: Bool)
-}
-
-extension CoordinatorProtocol {
-    
-    func addChildCoordinator(coordinator: CoordinatorProtocol) {
-        guard !childCoordinators.contains({ $0 === coordinator }) else { return }
-        childCoordinators.append(coordinator)
-    }
-    
-    func removeChildCoordinator(coordinator: CoordinatorProtocol) {
-        guard let index = self.childCoordinators.indexOf({$0 === coordinator}) else { return }
-        childCoordinators.removeAtIndex(index)
-    }
-    
-    func removeAllChildCoordinators() {
-        for childCoordinator in childCoordinators {
-            removeChildCoordinator(childCoordinator)
-        }
-    }
 }
 
 protocol RootCoordinatorProtocol: CoordinatorProtocol {

@@ -11,8 +11,6 @@ import UIKit
 
 class PageBasedFlowCoordinator: ModalCoordinatorProtocol {
     
-    var childCoordinators = [CoordinatorProtocol]()
-    
     weak var navigationController: NavigationViewController?
     
     var closeHandler: () -> () = { fatalError() }

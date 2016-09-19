@@ -11,8 +11,6 @@ import UIKit
 
 class MenuFlowCoordinator: RootCoordinatorProtocol {
     
-    var childCoordinators = [CoordinatorProtocol]()
-    
     weak var navigationController: NavigationViewController?
     
     var closeHandler: () -> () = { fatalError() }
@@ -21,14 +19,29 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
     
     let viewControllersFactory = MenuViewControllersFactory()
     
+    let masterDetailFlowCoordinator: MasterDetailFlowCoordinator
+    let pageBasedFlowCoordinator: PageBasedFlowCoordinator
+    let tabbedFlowCoordinator: TabbedFlowCoordinator
+    let userFlowCoordinator: UserFlowCoordinator
+    let userModalFlowCoordinator: UserFlowCoordinator
+
+    let viewController: MenuTableViewController
+    let navVC: NavigationViewController
+
     required init(window: UIWindow) {
         self.window = window
+        
+        viewController = viewControllersFactory.menuTableViewController()
+        navVC = NavigationViewController(rootViewController: viewController)
+
+        masterDetailFlowCoordinator = MasterDetailFlowCoordinator(presentingViewController: viewController)
+        pageBasedFlowCoordinator = PageBasedFlowCoordinator(presentingViewController: viewController)
+        tabbedFlowCoordinator = TabbedFlowCoordinator(presentingViewController: viewController)
+        userFlowCoordinator = UserFlowCoordinator(presentingViewController: viewController)
+        userModalFlowCoordinator = UserFlowCoordinator(presentingNavigationController: navVC)
     }
     
     func start(animated animated: Bool) {
-        let viewController = viewControllersFactory.menuTableViewController()
-        let navVC = NavigationViewController(rootViewController: viewController)
-
         viewController.selectMasterDetailHandler = showMasterDetail(withViewController: viewController, animated: animated)
         viewController.selectPageBasedHandler = showPageBased(withViewController: viewController, animated: animated)
         viewController.selectTabbedHandler = showTabbed(withViewController: viewController, animated: animated)
@@ -47,79 +60,54 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
     }
     
     func showMasterDetail(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
-        let handler = { [unowned self, unowned viewController] in
-            let masterDetailFlowCoordinator = MasterDetailFlowCoordinator(presentingViewController: viewController)
-            masterDetailFlowCoordinator.closeHandler = { [unowned self, unowned masterDetailFlowCoordinator] in
-                self.removeChildCoordinator(masterDetailFlowCoordinator)
-            }
-            masterDetailFlowCoordinator.start(animated: animated)
-            self.addChildCoordinator(masterDetailFlowCoordinator)
+        let handler = { [unowned self] in
+            self.masterDetailFlowCoordinator.closeHandler = { }
+            self.masterDetailFlowCoordinator.start(animated: animated)
         }
         return handler
     }
     
     func showPageBased(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
-        let handler = { [unowned self, unowned viewController] in
-            let pageBasedFlowCoordinator = PageBasedFlowCoordinator(presentingViewController: viewController)
-            pageBasedFlowCoordinator.closeHandler = { [unowned self, unowned pageBasedFlowCoordinator] in
-                self.removeChildCoordinator(pageBasedFlowCoordinator)
-            }
-            pageBasedFlowCoordinator.start(animated: animated)
-            self.addChildCoordinator(pageBasedFlowCoordinator)
+        let handler = { [unowned self] in
+            self.pageBasedFlowCoordinator.closeHandler = { }
+            self.pageBasedFlowCoordinator.start(animated: animated)
         }
         return handler
     }
     
     func showTabbed(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
-        let handler = { [unowned self, unowned viewController] in
-            let tabbedFlowCoordinator = TabbedFlowCoordinator(presentingViewController: viewController)
-            tabbedFlowCoordinator.closeHandler = { [unowned self, unowned tabbedFlowCoordinator] in
-                self.removeChildCoordinator(tabbedFlowCoordinator)
-            }
-            tabbedFlowCoordinator.start(animated: animated)
-            self.addChildCoordinator(tabbedFlowCoordinator)
+        let handler = { [unowned self] in
+            self.tabbedFlowCoordinator.closeHandler = { }
+            self.tabbedFlowCoordinator.start(animated: animated)
         }
         return handler
     }
     
     func showModal(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
-        let handler = { [unowned self, unowned viewController] in
-            let userFlowCoordinator = UserFlowCoordinator(presentingViewController: viewController)
-            userFlowCoordinator.closeHandler = { [unowned self, unowned userFlowCoordinator] in
-                self.removeChildCoordinator(userFlowCoordinator)
-            }
-            userFlowCoordinator.start(animated: animated)
-            self.addChildCoordinator(userFlowCoordinator)
+        let handler = { [unowned self] in
+            self.userFlowCoordinator.closeHandler = { }
+            self.userFlowCoordinator.start(animated: animated)
         }
         return handler
     }
     
     func showPush(withNavigationController navigationController: NavigationViewController, animated: Bool) -> (() -> ()) {
-        let handler = { [unowned self, unowned navigationController] in
-            let userFlowCoordinator = UserFlowCoordinator(presentingNavigationController: navigationController)
-            userFlowCoordinator.closeHandler = { [unowned self, unowned userFlowCoordinator] in
-                self.removeChildCoordinator(userFlowCoordinator)
-            }
-            userFlowCoordinator.start(animated: animated)
-            self.addChildCoordinator(userFlowCoordinator)
+        let handler = { [unowned self] in
+            self.userFlowCoordinator.closeHandler = { }
+            self.userModalFlowCoordinator.start(animated: animated)
         }
         return handler
     }
     
     func showContainer(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
-        let handler = { [unowned self, unowned viewController] in
-            let userFlowCoordinator = UserFlowCoordinator(presentingViewController: viewController)
-            userFlowCoordinator.closeHandler = { [unowned self, unowned userFlowCoordinator] in
-                self.removeChildCoordinator(userFlowCoordinator)
-            }
-            userFlowCoordinator.start(animated: animated)
-            self.addChildCoordinator(userFlowCoordinator)
+        let handler = { [unowned self] in
+            self.userFlowCoordinator.closeHandler = { }
+            self.userFlowCoordinator.start(animated: animated)
         }
         return handler
     }
     
     @objc func end(sender: UIBarButtonItem) {
-        removeAllChildCoordinators()
         closeHandler()
     }
 }

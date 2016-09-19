@@ -9,39 +9,32 @@
 import UIKit
 
 
-class AppCoordinator: RootCoordinatorProtocol {
-    
-    var childCoordinators = [CoordinatorProtocol]()
-    
-    weak var navigationController: NavigationViewController?
-
-    var closeHandler: () -> () = { fatalError() }
+class AppCoordinator {
     
     weak var window: UIWindow!
+    
+    let menuFlowCoordinator: MenuFlowCoordinator
+    let authenticationFlowCoordinator: AuthenticationFlowCoordinator
     
     private var isAuthenticated = true
     
     required init(window: UIWindow) {
         self.window = window
+        menuFlowCoordinator = MenuFlowCoordinator(window: window)
+        authenticationFlowCoordinator = AuthenticationFlowCoordinator(window: window)
     }
     
     func start(animated animated: Bool) {
         if authenticated() {
-            let menuFlowCoordinator = MenuFlowCoordinator(window: window)
-            menuFlowCoordinator.closeHandler = { [unowned self, unowned menuFlowCoordinator] in
-                self.removeChildCoordinator(menuFlowCoordinator)
+            menuFlowCoordinator.closeHandler = { [unowned self] in
                 self.start(animated: animated)
             }
             menuFlowCoordinator.start(animated: animated)
-            addChildCoordinator(menuFlowCoordinator)
         } else {
-            let authenticationFlowCoordinator = AuthenticationFlowCoordinator(window: window)
-            authenticationFlowCoordinator.closeHandler = { [unowned self, unowned authenticationFlowCoordinator] in
-                self.removeChildCoordinator(authenticationFlowCoordinator)
+            authenticationFlowCoordinator.closeHandler = { [unowned self] in
                 self.start(animated: animated)
             }
             authenticationFlowCoordinator.start(animated: animated)
-            addChildCoordinator(authenticationFlowCoordinator)
         }
     }
 }

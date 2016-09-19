@@ -10,31 +10,30 @@ import UIKit
 
 
 class MasterDetailFlowCoordinator: ModalCoordinatorProtocol {
-    
-    var childCoordinators = [CoordinatorProtocol]()
-    
+
     weak var navigationController: NavigationViewController?
     
     var closeHandler: () -> () = { fatalError() }
     
     let viewControllersFactory = MasterDetailViewControllersFactory()
-
+    
+    let masterDetailViewController: UISplitViewController
+    let userFlowCoordinator: UserFlowCoordinator
     weak var presentingViewController: UIViewController!
     
     required init(presentingViewController: UIViewController) {
         self.presentingViewController = presentingViewController
+        
+        masterDetailViewController = viewControllersFactory.masterDetailViewController()
+        userFlowCoordinator = UserFlowCoordinator(splitViewController: masterDetailViewController)
     }
     
     func start(animated animated: Bool) {
-        let viewController = viewControllersFactory.masterDetailViewController()
-        let userFlowCoordinator = UserFlowCoordinator(splitViewController: viewController)
         userFlowCoordinator.start(animated: animated)
-        userFlowCoordinator.closeHandler = { [unowned self, unowned userFlowCoordinator, weak viewController] in
-            viewController?.dismissViewControllerAnimated(animated, completion: nil)
-            self.removeChildCoordinator(userFlowCoordinator)
+        userFlowCoordinator.closeHandler = { [unowned self] in
+            self.masterDetailViewController.dismissViewControllerAnimated(animated, completion: nil)
         }
-        presentingViewController.presentViewController(viewController, animated: animated, completion: nil)
-        addChildCoordinator(userFlowCoordinator)
+        presentingViewController.presentViewController(masterDetailViewController, animated: animated, completion: nil)
     }
 
 }

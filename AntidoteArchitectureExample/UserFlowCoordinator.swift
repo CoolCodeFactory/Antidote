@@ -11,8 +11,6 @@ import UIKit
 class UserFlowCoordinator: CoordinatorProtocol, ModalCoordinatorProtocol, MasterDetailCoordinatorProtocol, PageBasedCoordinatorProtocol, TabbedCoordinatorProtocol, NavigationCoordinatorProtocol {
     
     // MARK: - CoordinatorProtocol
-    var childCoordinators = [CoordinatorProtocol]()
-    
     weak var navigationController: NavigationViewController?
     
     var closeHandler: () -> () = { fatalError() }
