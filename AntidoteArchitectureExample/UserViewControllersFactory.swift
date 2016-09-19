@@ -10,8 +10,9 @@ import UIKit
 
 class UserViewControllersFactory {
     
-    let storyboard = UIStoryboard(name: "User", bundle: nil)
-    
+    var storyboard: UIStoryboard = {
+        UIStoryboard(name: "User", bundle: nil)
+    }()
     
     func navigationController() -> NavigationViewController {
         let viewController = NavigationViewController.controllerFromStoryboard(storyboard)

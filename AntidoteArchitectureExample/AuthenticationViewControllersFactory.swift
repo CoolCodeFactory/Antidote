@@ -11,7 +11,9 @@ import UIKit
 
 class AuthenticationViewControllersFactory {
     
-    let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+    var storyboard: UIStoryboard = {
+        UIStoryboard(name: "Authentication", bundle: nil)
+    }()
     
     
     func signInViewController() -> SignInViewController {

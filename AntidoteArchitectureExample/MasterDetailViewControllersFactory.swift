@@ -10,8 +10,9 @@ import UIKit
 
 class MasterDetailViewControllersFactory {
     
-    let storyboard = UIStoryboard(name: "MasterDetail", bundle: nil)
-    
+    var storyboard: UIStoryboard = {
+        UIStoryboard(name: "MasterDetail", bundle: nil)
+    }()
     
     func masterDetailViewController() -> MasterDetailViewController {
         let viewController = MasterDetailViewController.controllerFromStoryboard(storyboard)

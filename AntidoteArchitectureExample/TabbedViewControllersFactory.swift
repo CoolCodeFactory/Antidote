@@ -10,8 +10,9 @@ import UIKit
 
 class TabbedViewControllersFactory {
     
-    let storyboard = UIStoryboard(name: "Tabbed", bundle: nil)
-    
+    var storyboard: UIStoryboard = {
+        UIStoryboard(name: "Tabbed", bundle: nil)
+    }()
     
     func tabbedController() -> TabbedController {
         let viewController = TabbedController.controllerFromStoryboard(storyboard)

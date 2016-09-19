@@ -10,8 +10,9 @@ import UIKit
 
 class MenuViewControllersFactory {
     
-    let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-    
+    var storyboard: UIStoryboard = {
+        UIStoryboard(name: "Menu", bundle: nil)
+    }()
     
     func menuTableViewController() -> MenuTableViewController {
         let viewController = MenuTableViewController.controllerFromStoryboard(storyboard)

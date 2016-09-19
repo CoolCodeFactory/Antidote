@@ -10,8 +10,9 @@ import UIKit
 
 class PageBasedViewControllersFactory {
     
-    let storyboard = UIStoryboard(name: "PageBased", bundle: nil)
-    
+    var storyboard: UIStoryboard = {
+        UIStoryboard(name: "PageBased", bundle: nil)
+    }()
     
     func pageBasedViewController() -> PageBasedViewController {
         let viewController = PageBasedViewController.controllerFromStoryboard(storyboard)
