@@ -32,9 +32,13 @@ class MasterDetailFlowCoordinator: ModalCoordinatorProtocol {
 
         userFlowCoordinator.start(animated: animated)
         userFlowCoordinator.closeHandler = { [unowned self] in
-            self.masterDetailViewController.dismissViewControllerAnimated(animated, completion: nil)
+            self.finish(animated: animated)
         }
         presentingViewController.presentViewController(masterDetailViewController, animated: animated, completion: nil)
+    }
+    
+    func finish(animated animated: Bool) {
+        self.masterDetailViewController.dismissViewControllerAnimated(animated, completion: nil)
     }
 
 }

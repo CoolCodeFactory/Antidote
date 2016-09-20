@@ -33,11 +33,27 @@ class PageBasedViewController: UIPageViewController {
         
         delegate = self
         dataSource = self
-        doubleSided = true
         
         let currentViewController = _viewControllers.first!
         setViewControllers([currentViewController], direction: .Forward, animated:true, completion:nil)
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.whiteColor()
+        
+        configurePageControl()
+    }
+    
+    func configurePageControl() {
+        var foundedPageControl: UIPageControl?
+        for subview in view.subviews {
+            if let pageControlSubview = subview as? UIPageControl {
+                foundedPageControl = pageControlSubview
+                break
+            }
+        }
+        guard let pageControl = foundedPageControl else { return }
+        
+        pageControl.pageIndicatorTintColor = view.tintColor.colorWithAlphaComponent(0.3)
+        pageControl.currentPageIndicatorTintColor = view.tintColor
+        pageControl.backgroundColor = view.backgroundColor
     }
     
     deinit {
@@ -76,14 +92,5 @@ extension PageBasedViewController: UIPageViewControllerDelegate {
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
-    }
-    
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if completed == false {
-            return
-        }
-        
-        let viewController = pageViewController.viewControllers!.last!
-        let newIndex = self._viewControllers.indexOf(viewController)!
     }
 }

@@ -50,15 +50,12 @@ extension UIViewController {
         fromContentController.willMoveToParentViewController(nil)
         addChildViewController(toContentController)
         
-        fromContentController.view.snp_remakeConstraints { (make) in
-            make.edges.equalTo(view)
-        }
-        toContentController.view.snp_makeConstraints { (make) in
-            make.edges.equalTo(view)
-        }
+        toContentController.view.frame = fromContentController.view.frame
         
-        transitionFromViewController(fromContentController, toViewController: toContentController, duration: duration, options: [], animations: { 
-            // ...
+        transitionFromViewController(fromContentController, toViewController: toContentController, duration: duration, options: [.TransitionCrossDissolve], animations: {
+            toContentController.view.snp_makeConstraints { (make) in
+                make.edges.equalTo(view)
+            }
         }) { (finished) in
             fromContentController.removeFromParentViewController()
             toContentController.didMoveToParentViewController(self)

@@ -16,6 +16,7 @@ protocol CoordinatorProtocol: class {
     var closeHandler: () -> () { get set }
     
     func start(animated animated: Bool)
+    func finish(animated animated: Bool)
 }
 
 protocol RootCoordinatorProtocol: CoordinatorProtocol {

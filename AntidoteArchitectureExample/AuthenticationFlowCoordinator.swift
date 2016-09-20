@@ -30,8 +30,12 @@ class AuthenticationFlowCoordinator: RootCoordinatorProtocol {
     func start(animated animated: Bool) {
         let viewController = viewControllersFactory.signInViewController()
         viewController.signInHandler = { [unowned self] in
-            self.closeHandler()
+            self.finish(animated: animated)
         }
         window.setRootViewController(viewController, animated: animated)
+    }
+    
+    func finish(animated animated: Bool) {
+        closeHandler()
     }
 }
