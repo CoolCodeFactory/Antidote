@@ -39,7 +39,7 @@ Antidote Architecture:
 - [x] Tabbed
 - [x] Push into current UINavigationController
 - [x] Present modally
-- [ ] Present inside container
+- [x] Present inside container
   
 ## Questions:
 - [x] Handle container presentation logic and callbacks? Use public function + callbacks (look at User Container)
