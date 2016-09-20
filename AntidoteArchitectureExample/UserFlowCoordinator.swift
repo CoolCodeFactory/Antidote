@@ -8,152 +8,240 @@
 
 import UIKit
 
-class UserFlowCoordinator: CoordinatorProtocol, ModalCoordinatorProtocol, MasterDetailCoordinatorProtocol, PageBasedCoordinatorProtocol, TabbedCoordinatorProtocol, NavigationCoordinatorProtocol {
+class UserMasterDetailFlowCoordinator: UserFlowCoordinator, MasterDetailCoordinatorProtocol {
     
-    // MARK: - CoordinatorProtocol
-    weak var navigationController: NavigationViewController?
-    
-    var closeHandler: () -> () = { fatalError() }
-    
-    let viewControllersFactory = UserViewControllersFactory()
-    
-    // MARK: - ModalCoordinatorProtocol
     weak var splitViewController: UISplitViewController!
     
     required init(splitViewController: UISplitViewController) {
         self.splitViewController = splitViewController
     }
     
-    // MARK: - MasterDetailCoordinatorProtocol
-    weak var tabBarController: UITabBarController!
-    
-    required init(tabBarController: UITabBarController) {
-        self.tabBarController = tabBarController
+    override func start(animated animated: Bool) {
+        let viewController = viewControllersFactory.usersTableViewController()
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.selectUserHandler = { [unowned self] name in
+            self.presentUserViewController(withName: name)
+        }
+        
+        let navVC = viewControllersFactory.navigationController()
+        navVC.setViewControllers([viewController], animated: false)
+        
+        splitViewController.viewControllers = [navVC]
     }
     
-    // MARK: - PageBasedCoordinatorProtocol
-    weak var pageViewController: UIPageViewController!
-    
-    required init(pageViewController: UIPageViewController) {
-        self.pageViewController = pageViewController
-    }
+    private override func presentUserViewController(withName name: String) {
 
-    // MARK: - TabbedCoordinatorProtocol
+        let viewController = viewControllersFactory.userViewController(withName: name)
+        let navVC = viewControllersFactory.navigationController()
+        navVC.setViewControllers([viewController], animated: false)
+        
+        splitViewController.showDetailViewController(navVC, sender: nil)
+    }
+}
+
+
+class UserModalFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtocol {
+    
     weak var presentingViewController: UIViewController!
     
     required init(presentingViewController: UIViewController) {
         self.presentingViewController = presentingViewController
     }
     
-    // MARK: - NavigationCoordinatorProtocol
+    override func start(animated animated: Bool) {
+        let viewController = viewControllersFactory.usersTableViewController()
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.selectUserHandler = { [unowned self] name in
+            self.presentUserViewController(withName: name)
+        }
+        
+        let navVC = viewControllersFactory.navigationController()
+        navVC.setViewControllers([viewController], animated: false)
+        
+        presentingViewController.presentViewController(navVC, animated: true, completion: nil)
+        navigationController = navVC
+    }
+    
+    @objc override func end(sender: UIBarButtonItem) {
+        navigationController.dismissViewControllerAnimated(true, completion: nil)
+        closeHandler()
+    }
+}
+
+
+class UserPageBasedFlowCoordinator: UserFlowCoordinator, PageBasedCoordinatorProtocol {
+
+    weak var pageViewController: PageBasedViewController!
+    
+    required init(pageViewController: PageBasedViewController) {
+        self.pageViewController = pageViewController
+    }
+    
+    override func start(animated animated: Bool) {
+        let viewController = viewControllersFactory.usersTableViewController()
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.selectUserHandler = { [unowned self] name in
+            self.presentUserViewController(withName: name)
+        }
+        
+        let navVC = viewControllersFactory.navigationController()
+        navVC.setViewControllers([viewController], animated: false)
+        
+        if var viewControllers = pageViewController.viewControllers {
+            viewControllers.append(navVC)
+            pageViewController.setViewControllers(viewControllers)
+        } else {
+            pageViewController.setViewControllers([navVC])
+        }
+    }
+    
+    private override func presentUserViewController(withName name: String) {
+        let viewController = viewControllersFactory.userViewController(withName: name)
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        
+        let navVC = viewControllersFactory.navigationController()
+        navVC.setViewControllers([viewController], animated: false)
+        
+        let viewControllers = pageViewController.viewControllers!
+        var filteredViewControllers = viewControllers.filter({ (viewController) -> Bool in
+            guard let navVC = viewController as? NavigationViewController else { return true }
+            return !(navVC.viewControllers.first is UserViewController)
+        })
+        filteredViewControllers.append(navVC)
+        pageViewController.setViewControllers(filteredViewControllers)
+        
+        let alertController = UIAlertController(title: "Second page appeared", message: "UserViewController opened in the second page", preferredStyle: UIAlertControllerStyle.Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        alertController.addAction(defaultAction)
+        pageViewController.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+}
+
+
+class UserTabbedFlowCoordinator: UserFlowCoordinator, TabbedCoordinatorProtocol {
+    
+    weak var tabBarController: UITabBarController!
+    
+    required init(tabBarController: UITabBarController) {
+        self.tabBarController = tabBarController
+    }
+    
+    override func start(animated animated: Bool) {
+        let viewController = viewControllersFactory.usersTableViewController()
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.selectUserHandler = { [unowned self] name in
+            self.presentUserViewController(withName: name)
+        }
+        let navVC = viewControllersFactory.navigationController()
+        navVC.setViewControllers([viewController], animated: false)
+        
+        if var viewControllers = tabBarController.viewControllers {
+            viewControllers.append(navVC)
+            tabBarController.setViewControllers(viewControllers, animated: false)
+        } else {
+            tabBarController.setViewControllers([navVC], animated: false)
+        }
+    }
+    
+    private override func presentUserViewController(withName name: String) {
+        let viewController = viewControllersFactory.userViewController(withName: name)
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        
+        let navVC = viewControllersFactory.navigationController()
+        navVC.setViewControllers([viewController], animated: false)
+        
+        let viewControllers = tabBarController.viewControllers!
+        var filteredViewControllers = viewControllers.filter({ (viewController) -> Bool in
+            guard let navVC = viewController as? NavigationViewController else { return true }
+            return !(navVC.viewControllers.first is UserViewController)
+        })
+        filteredViewControllers.append(navVC)
+        tabBarController.setViewControllers(filteredViewControllers, animated: false)
+        
+        let alertController = UIAlertController(title: "Second tab appeared", message: "UserViewController opened in the second tab", preferredStyle: UIAlertControllerStyle.Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        alertController.addAction(defaultAction)
+        tabBarController.presentViewController(alertController, animated: true, completion: nil)
+    }
+}
+
+
+class UserNavigationFlowCoordinator: UserFlowCoordinator, NavigationCoordinatorProtocol {
+    
     weak var presentingNavigationController: NavigationViewController!
     
     required init(presentingNavigationController: NavigationViewController) {
         self.presentingNavigationController = presentingNavigationController
     }
     
+    override func start(animated animated: Bool) {
+        let viewController = viewControllersFactory.usersTableViewController()
+        viewController.selectUserHandler = { [unowned self] name in
+            self.presentUserViewController(withName: name)
+        }
+        
+        presentingNavigationController.pushViewController(viewController, animated: animated)
+    }
+
+    private override func presentUserViewController(withName name: String) {
+        let viewController = viewControllersFactory.userViewController(withName: name)
+        presentingNavigationController?.pushViewController(viewController, animated: true)
+    }
+
+}
+
+class UserFlowCoordinator: CoordinatorProtocol {
+    
+    weak var navigationController: NavigationViewController!
+    
+    var closeHandler: () -> () = { fatalError() }
+    
+    let viewControllersFactory = UserViewControllersFactory()
+    
     
     func start(animated animated: Bool) {
-        if presentingViewController != nil {
-            let viewController = viewControllersFactory.usersTableViewController()
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
-            viewController.selectUserHandler = { [unowned self] name in
-                self.presentUserViewController(withName: name)
-            }
-            
-            let navVC = viewControllersFactory.navigationController()
-            navVC.setViewControllers([viewController], animated: false)
-
-            presentingViewController.presentViewController(navVC, animated: true, completion: nil)
-            navigationController = navVC
-        }
         
-        if splitViewController != nil {
-            let viewController = viewControllersFactory.usersTableViewController()
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
-            viewController.selectUserHandler = { [unowned self] name in
-                self.presentUserViewController(withName: name)
-            }
-            
-            let navVC = viewControllersFactory.navigationController()
-            navVC.setViewControllers([viewController], animated: false)
-            
-            splitViewController.viewControllers = [navVC]
-        }
-        
-        if pageViewController != nil {
-            
-        }
-        
-        if tabBarController != nil {
-            let viewController = viewControllersFactory.usersTableViewController()
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
-            viewController.selectUserHandler = { [unowned self] name in
-                self.presentUserViewController(withName: name)
-            }
-            let navVC = viewControllersFactory.navigationController()
-            navVC.setViewControllers([viewController], animated: false)
-            
-            if var viewControllers = tabBarController.viewControllers {
-                viewControllers.append(navVC)
-                tabBarController.setViewControllers(viewControllers, animated: false)
-            } else {
-                tabBarController.setViewControllers([navVC], animated: false)
-            }
-        }
-        
-        if presentingNavigationController != nil {
-            let viewController = viewControllersFactory.usersTableViewController()
-            viewController.selectUserHandler = { [unowned self] name in
-                self.presentUserViewController(withName: name)
-            }
-            
-            presentingNavigationController.pushViewController(viewController, animated: animated)
-        }
     }
     
     @objc func end(sender: UIBarButtonItem) {
-        navigationController?.dismissViewControllerAnimated(true, completion: nil)
         closeHandler()
     }
     
     private func presentUserViewController(withName name: String) {
-        if presentingViewController != nil {
-            let viewController = viewControllersFactory.userViewController(withName: name)
-            navigationController?.pushViewController(viewController, animated: true)
+
+    }
+}
+
+
+class UserContainerFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtocol {
+   
+    weak var presentingViewController: UIViewController!
+    
+    required init(presentingViewController: UIViewController) {
+        self.presentingViewController = presentingViewController
+    }
+    
+    override func start(animated animated: Bool) {
+        let viewController = viewControllersFactory.userContainerViewController()
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.usersViewControllerBuilder = { [unowned self] in
+            let viewController = self.viewControllersFactory.usersTableViewController()
+            viewController.selectUserHandler = { [unowned self] name in
+                self.presentUserViewController(withName: name)
+            }
+            return viewController
         }
         
-        if splitViewController != nil {
-            let viewController = viewControllersFactory.userViewController(withName: name)
-            let navVC = viewControllersFactory.navigationController()
-            navVC.setViewControllers([viewController], animated: false)
-            
-            splitViewController.showDetailViewController(navVC, sender: nil)
-        }
+        let navVC = viewControllersFactory.navigationController()
+        navVC.setViewControllers([viewController], animated: false)
         
-        if pageViewController != nil {
-            fatalError()
-        }
-        
-        if tabBarController != nil {
-            let viewController = viewControllersFactory.userViewController(withName: name)
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
-            
-            let navVC = viewControllersFactory.navigationController()
-            navVC.setViewControllers([viewController], animated: false)
-            
-            let viewControllers = tabBarController.viewControllers!
-            var filteredViewControllers = viewControllers.filter({ (viewController) -> Bool in
-                guard let navVC = viewController as? NavigationViewController else { return true }
-                return !(navVC.viewControllers.first is UserViewController)
-            })
-            filteredViewControllers.append(navVC)
-            tabBarController.setViewControllers(filteredViewControllers, animated: false)
-        }
-        
-        if presentingNavigationController != nil {
-            let viewController = viewControllersFactory.userViewController(withName: name)
-            presentingNavigationController?.pushViewController(viewController, animated: true)
-        }
+        presentingViewController.presentViewController(navVC, animated: true, completion: nil)
+        navigationController = navVC
+    }
+    
+    @objc override func end(sender: UIBarButtonItem) {
+        navigationController.dismissViewControllerAnimated(true, completion: nil)
+        closeHandler()
     }
 }

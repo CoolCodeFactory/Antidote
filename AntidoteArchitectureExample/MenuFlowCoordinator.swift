@@ -11,7 +11,7 @@ import UIKit
 
 class MenuFlowCoordinator: RootCoordinatorProtocol {
     
-    weak var navigationController: NavigationViewController?
+    weak var navigationController: NavigationViewController!
     
     var closeHandler: () -> () = { fatalError() }
     
@@ -19,39 +19,38 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
     
     let viewControllersFactory = MenuViewControllersFactory()
     
-    let masterDetailFlowCoordinator: MasterDetailFlowCoordinator
-    let pageBasedFlowCoordinator: PageBasedFlowCoordinator
-    let tabbedFlowCoordinator: TabbedFlowCoordinator
-    let userFlowCoordinator: UserFlowCoordinator
-    let userModalFlowCoordinator: UserFlowCoordinator
-
-    let viewController: MenuTableViewController
-    let navVC: NavigationViewController
-
+    var masterDetailFlowCoordinator: MasterDetailFlowCoordinator!
+    var pageBasedFlowCoordinator: PageBasedFlowCoordinator!
+    var tabbedFlowCoordinator: TabbedFlowCoordinator!
+    var userFlowCoordinator: UserFlowCoordinator!
+    var userModalFlowCoordinator: UserFlowCoordinator!
+    var userContainerFlowCoordinator: UserContainerFlowCoordinator!
+    
     required init(window: UIWindow) {
         self.window = window
-        
-        viewController = viewControllersFactory.menuTableViewController()
-        navVC = NavigationViewController(rootViewController: viewController)
-
-        masterDetailFlowCoordinator = MasterDetailFlowCoordinator(presentingViewController: viewController)
-        pageBasedFlowCoordinator = PageBasedFlowCoordinator(presentingViewController: viewController)
-        tabbedFlowCoordinator = TabbedFlowCoordinator(presentingViewController: viewController)
-        userModalFlowCoordinator = UserFlowCoordinator(presentingViewController: viewController)
-        userFlowCoordinator = UserFlowCoordinator(presentingNavigationController: navVC)
     }
     
     func start(animated animated: Bool) {
-        viewController.selectMasterDetailHandler = showMasterDetail(withViewController: viewController, animated: animated)
-        viewController.selectPageBasedHandler = showPageBased(withViewController: viewController, animated: animated)
-        viewController.selectTabbedHandler = showTabbed(withViewController: viewController, animated: animated)
-        viewController.selectModalHandler = showModal(withViewController: viewController, animated: animated)
-        viewController.selectPushHandler = showPush(withNavigationController: navVC, animated: animated)
-        viewController.selectContainerHandler = showContainer(withViewController: viewController, animated: animated)
+        let viewController = viewControllersFactory.menuTableViewController()
+        let navigationController = NavigationViewController(rootViewController: viewController)
+        
+        masterDetailFlowCoordinator = MasterDetailFlowCoordinator(presentingViewController: navigationController)
+        pageBasedFlowCoordinator = PageBasedFlowCoordinator(presentingViewController: navigationController)
+        tabbedFlowCoordinator = TabbedFlowCoordinator(presentingViewController: navigationController)
+        userModalFlowCoordinator = UserModalFlowCoordinator(presentingViewController: navigationController)
+        userFlowCoordinator = UserNavigationFlowCoordinator(presentingNavigationController: navigationController)
+        userContainerFlowCoordinator = UserContainerFlowCoordinator(presentingViewController: navigationController)
+        
+        viewController.selectMasterDetailHandler = showMasterDetail(animated: animated)
+        viewController.selectPageBasedHandler = showPageBased(animated: animated)
+        viewController.selectTabbedHandler = showTabbed(animated: animated)
+        viewController.selectModalHandler = showModal(animated: animated)
+        viewController.selectPushHandler = showPush(animated: animated)
+        viewController.selectContainerHandler = showContainer(animated: animated)
         
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
-        window.setRootViewController(navVC, animated: animated)
-        self.navigationController = navVC
+        window.setRootViewController(navigationController, animated: animated)
+        self.navigationController = navigationController
     }
     
     
@@ -59,7 +58,7 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
         print("Deinit: \(self)")
     }
     
-    func showMasterDetail(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
+    func showMasterDetail(animated animated: Bool) -> (() -> ()) {
         let handler = { [unowned self] in
             self.masterDetailFlowCoordinator.closeHandler = { }
             self.masterDetailFlowCoordinator.start(animated: animated)
@@ -67,7 +66,7 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
         return handler
     }
     
-    func showPageBased(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
+    func showPageBased(animated animated: Bool) -> (() -> ()) {
         let handler = { [unowned self] in
             self.pageBasedFlowCoordinator.closeHandler = { }
             self.pageBasedFlowCoordinator.start(animated: animated)
@@ -75,7 +74,7 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
         return handler
     }
     
-    func showTabbed(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
+    func showTabbed(animated animated: Bool) -> (() -> ()) {
         let handler = { [unowned self] in
             self.tabbedFlowCoordinator.closeHandler = { }
             self.tabbedFlowCoordinator.start(animated: animated)
@@ -83,7 +82,7 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
         return handler
     }
     
-    func showModal(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
+    func showModal(animated animated: Bool) -> (() -> ()) {
         let handler = { [unowned self] in
             self.userModalFlowCoordinator.closeHandler = { }
             self.userModalFlowCoordinator.start(animated: animated)
@@ -91,7 +90,7 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
         return handler
     }
     
-    func showPush(withNavigationController navigationController: NavigationViewController, animated: Bool) -> (() -> ()) {
+    func showPush(animated animated: Bool) -> (() -> ()) {
         let handler = { [unowned self] in
             self.userFlowCoordinator.closeHandler = { }
             self.userFlowCoordinator.start(animated: animated)
@@ -99,10 +98,10 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
         return handler
     }
     
-    func showContainer(withViewController viewController: UIViewController, animated: Bool) -> (() -> ()) {
+    func showContainer(animated animated: Bool) -> (() -> ()) {
         let handler = { [unowned self] in
-            self.userModalFlowCoordinator.closeHandler = { }
-            self.userModalFlowCoordinator.start(animated: animated)
+            self.userContainerFlowCoordinator.closeHandler = { }
+            self.userContainerFlowCoordinator.start(animated: animated)
         }
         return handler
     }

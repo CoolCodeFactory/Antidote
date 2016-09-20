@@ -11,12 +11,15 @@ import UIKit
 
 class PageBasedFlowCoordinator: ModalCoordinatorProtocol {
     
-    weak var navigationController: NavigationViewController?
+    weak var navigationController: NavigationViewController!
     
     var closeHandler: () -> () = { fatalError() }
     
     let viewControllersFactory = PageBasedViewControllersFactory()
 
+    var userFlowCoordinator: UserFlowCoordinator!
+    weak var pageBasedViewController: PageBasedViewController!
+    
     weak var presentingViewController: UIViewController!
     
     required init(presentingViewController: UIViewController) {
@@ -24,7 +27,14 @@ class PageBasedFlowCoordinator: ModalCoordinatorProtocol {
     }
     
     func start(animated animated: Bool) {
-        let viewController = viewControllersFactory.pageBasedViewController()
-        presentingViewController.presentViewController(viewController, animated: true, completion: nil)
+        pageBasedViewController = viewControllersFactory.pageBasedViewController()
+        userFlowCoordinator = UserPageBasedFlowCoordinator(pageViewController: pageBasedViewController)
+        
+        
+        userFlowCoordinator.start(animated: animated)
+        userFlowCoordinator.closeHandler = { [unowned self] in
+            self.pageBasedViewController.dismissViewControllerAnimated(animated, completion: nil)
+        }
+        presentingViewController.presentViewController(pageBasedViewController, animated: animated, completion: nil)
     }
 }

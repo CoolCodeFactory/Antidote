@@ -8,7 +8,7 @@
         <!--Page Based View Controller-->
         <scene sceneID="Cc4-KQ-Dyy">
             <objects>
-                <pageViewController storyboardIdentifier="PageBasedViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="N1M-os-Q4i" customClass="PageBasedViewController" customModule="AntidoteArchitectureExample" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageBasedViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="N1M-os-Q4i" customClass="PageBasedViewController" customModule="AntidoteArchitectureExample" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgT-dq-nE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="319" y="377"/>

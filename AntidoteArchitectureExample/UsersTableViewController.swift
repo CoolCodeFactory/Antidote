@@ -13,6 +13,10 @@ class UsersTableViewController: UITableViewController {
     var selectUserHandler: (String) -> () = { _ in fatalError() }
     
     
+    deinit {
+        print("Deinit: \(self)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

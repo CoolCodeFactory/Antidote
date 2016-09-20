@@ -13,18 +13,19 @@ class AppCoordinator {
     
     weak var window: UIWindow!
     
-    let menuFlowCoordinator: MenuFlowCoordinator
-    let authenticationFlowCoordinator: AuthenticationFlowCoordinator
+    var menuFlowCoordinator: MenuFlowCoordinator!
+    var authenticationFlowCoordinator: AuthenticationFlowCoordinator!
     
     private var isAuthenticated = true
     
     required init(window: UIWindow) {
         self.window = window
-        menuFlowCoordinator = MenuFlowCoordinator(window: window)
-        authenticationFlowCoordinator = AuthenticationFlowCoordinator(window: window)
     }
     
     func start(animated animated: Bool) {
+        menuFlowCoordinator = MenuFlowCoordinator(window: window)
+        authenticationFlowCoordinator = AuthenticationFlowCoordinator(window: window)
+
         if authenticated() {
             menuFlowCoordinator.closeHandler = { [unowned self] in
                 self.start(animated: animated)

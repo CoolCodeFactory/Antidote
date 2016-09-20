@@ -48,6 +48,7 @@
 		1CBC3BBE1D8C179800BAA6A9 /* UserViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBC3BBD1D8C179800BAA6A9 /* UserViewControllersFactory.swift */; };
 		32A63AC01D8FD8BD00347DFA /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A63ABF1D8FD8BD00347DFA /* CoordinatorProtocol.swift */; };
 		32A63AC21D901C5600347DFA /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A63AC11D901C5600347DFA /* NavigationViewController.swift */; };
+		32E542551D91355A00865464 /* UserContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E542541D91355A00865464 /* UserContainerViewController.swift */; };
 		5840EBBA3D5767136E581F88 /* Pods_AntidoteArchitectureExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248D89928567FC17D63A37BE /* Pods_AntidoteArchitectureExample.framework */; };
 		C0B83BFAEDF79B7853F92863 /* Pods_AntidoteArchitectureExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84541D6BF6B0912DB8E8B854 /* Pods_AntidoteArchitectureExampleUITests.framework */; };
 		D50527EA431E642067C9B2C6 /* Pods_AntidoteArchitectureExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D9D841E8183DD838760B90 /* Pods_AntidoteArchitectureExampleTests.framework */; };
@@ -122,6 +123,7 @@
 		248D89928567FC17D63A37BE /* Pods_AntidoteArchitectureExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntidoteArchitectureExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A63ABF1D8FD8BD00347DFA /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinatorProtocol.swift; path = AntidoteArchitectureExample/CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		32A63AC11D901C5600347DFA /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		32E542541D91355A00865464 /* UserContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContainerViewController.swift; sourceTree = "<group>"; };
 		50D07AA85E49807B15837996 /* Pods-AntidoteArchitectureExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntidoteArchitectureExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AntidoteArchitectureExampleUITests/Pods-AntidoteArchitectureExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7208FD6F0DC1C2AE1062EBC5 /* Pods-AntidoteArchitectureExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AntidoteArchitectureExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AntidoteArchitectureExampleTests/Pods-AntidoteArchitectureExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		84541D6BF6B0912DB8E8B854 /* Pods_AntidoteArchitectureExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AntidoteArchitectureExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,6 +270,7 @@
 				1CBC3BBD1D8C179800BAA6A9 /* UserViewControllersFactory.swift */,
 				1CBC3BB71D8C174800BAA6A9 /* Users */,
 				1CBC3BB81D8C174D00BAA6A9 /* User */,
+				32E542531D91353000865464 /* User Container */,
 			);
 			name = "User Flow";
 			sourceTree = "<group>";
@@ -411,6 +414,14 @@
 				32A63AC11D901C5600347DFA /* NavigationViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		32E542531D91353000865464 /* User Container */ = {
+			isa = PBXGroup;
+			children = (
+				32E542541D91355A00865464 /* UserContainerViewController.swift */,
+			);
+			name = "User Container";
 			sourceTree = "<group>";
 		};
 		365262504CE33CEAC32BEC42 /* Frameworks */ = {
@@ -711,6 +722,7 @@
 				1CBC3B9E1D8C053200BAA6A9 /* AuthenticationViewControllersFactory.swift in Sources */,
 				1CBC3B971D8BFEF000BAA6A9 /* AppCoordinator.swift in Sources */,
 				1CBC3B751D8BF91400BAA6A9 /* TabbedFlowCoordinator.swift in Sources */,
+				32E542551D91355A00865464 /* UserContainerViewController.swift in Sources */,
 				1CBC3BA41D8C065A00BAA6A9 /* UIWindow+Extensions.swift in Sources */,
 				1CBC3B8E1D8BFB1B00BAA6A9 /* UIViewController+Extensions.swift in Sources */,
 				1CBC3B391D8BF7FD00BAA6A9 /* AppDelegate.swift in Sources */,

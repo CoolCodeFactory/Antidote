@@ -38,4 +38,10 @@ class UserViewControllersFactory {
         
         return viewController
     }
+    
+    func userContainerViewController() -> UserContainerViewController {
+        let viewController = UserContainerViewController.controllerFromStoryboard(storyboard)
+        
+        return viewController
+    }
 }

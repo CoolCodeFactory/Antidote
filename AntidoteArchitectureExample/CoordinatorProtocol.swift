@@ -11,7 +11,7 @@ import UIKit
 
 protocol CoordinatorProtocol: class {
     
-    weak var navigationController: NavigationViewController? { get set }
+    weak var navigationController: NavigationViewController! { get set }
 
     var closeHandler: () -> () { get set }
     
@@ -41,9 +41,9 @@ protocol TabbedCoordinatorProtocol: CoordinatorProtocol {
 
 protocol PageBasedCoordinatorProtocol: CoordinatorProtocol {
     
-    weak var pageViewController: UIPageViewController! { get }
+    weak var pageViewController: PageBasedViewController! { get }
     
-    init(pageViewController: UIPageViewController)
+    init(pageViewController: PageBasedViewController)
 }
 
 protocol MasterDetailCoordinatorProtocol: CoordinatorProtocol {

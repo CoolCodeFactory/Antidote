@@ -12,25 +12,26 @@ import UIKit
 
 class TabbedFlowCoordinator: ModalCoordinatorProtocol {
     
-    weak var navigationController: NavigationViewController?
+    weak var navigationController: NavigationViewController!
     
     var closeHandler: () -> () = { fatalError() }
     
     let viewControllersFactory = TabbedViewControllersFactory()
 
-    let userFlowCoordinator: UserFlowCoordinator
-    let tabBarController: UITabBarController
+    var userFlowCoordinator: UserFlowCoordinator!
+    weak var tabBarController: UITabBarController!
     
     weak var presentingViewController: UIViewController!
     
     required init(presentingViewController: UIViewController) {
         self.presentingViewController = presentingViewController
-        
-        tabBarController = viewControllersFactory.tabbedController()
-        userFlowCoordinator = UserFlowCoordinator(tabBarController: tabBarController)
     }
     
     func start(animated animated: Bool) {
+        tabBarController = viewControllersFactory.tabbedController()
+        userFlowCoordinator = UserTabbedFlowCoordinator(tabBarController: tabBarController)
+
+        
         userFlowCoordinator.start(animated: animated)
         userFlowCoordinator.closeHandler = { [unowned self] in
             self.tabBarController.dismissViewControllerAnimated(animated, completion: nil)

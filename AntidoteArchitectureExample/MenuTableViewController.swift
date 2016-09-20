@@ -33,7 +33,7 @@ class MenuTableViewController: UITableViewController {
     }
     
     deinit {
-        
+        print("DEINIT: \(self)")
     }
 
     // MARK: - Table view data source

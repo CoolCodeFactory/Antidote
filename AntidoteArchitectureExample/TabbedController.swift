@@ -11,4 +11,7 @@ import UIKit
 
 class TabbedController: UITabBarController {
 
+    deinit {
+        print("DEINIT: \(self)")
+    }
 }
