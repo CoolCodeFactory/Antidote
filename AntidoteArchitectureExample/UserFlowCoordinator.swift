@@ -8,38 +8,30 @@
 
 import UIKit
 
-class UserMasterDetailFlowCoordinator: UserFlowCoordinator, MasterDetailCoordinatorProtocol {
-    
-    weak var splitViewController: UISplitViewController!
-    
-    required init(splitViewController: UISplitViewController) {
-        self.splitViewController = splitViewController
-    }
-    
-    override func start(animated animated: Bool) {
-        let viewController = viewControllersFactory.usersTableViewController()
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
-        viewController.selectUserHandler = { [unowned self] name in
-            self.presentUserViewController(withName: name)
-        }
-        
-        let navVC = viewControllersFactory.navigationController()
-        navVC.setViewControllers([viewController], animated: false)
-        
-        splitViewController.viewControllers = [navVC]
-    }
-    
-    override func finish(animated animated: Bool) {
-        // ...
-    }
-    
-    private override func presentUserViewController(withName name: String) {
 
-        let viewController = viewControllersFactory.userViewController(withName: name)
-        let navVC = viewControllersFactory.navigationController()
-        navVC.setViewControllers([viewController], animated: false)
+class UserFlowCoordinator: CoordinatorProtocol {
+    
+    weak var navigationController: NavigationViewController!
+    
+    var closeHandler: () -> () = { fatalError() }
+    
+    let viewControllersFactory = UserViewControllersFactory()
+    
+    
+    func start(animated animated: Bool) {
         
-        splitViewController.showDetailViewController(navVC, sender: nil)
+    }
+    
+    @objc func end(sender: UIBarButtonItem) {
+        closeHandler()
+    }
+    
+    func finish(animated animated: Bool) {
+        
+    }
+    
+    private func presentUserViewController(withName name: String) {
+        
     }
 }
 
@@ -77,6 +69,70 @@ class UserModalFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtocol {
     private override func presentUserViewController(withName name: String) {
         let viewController = viewControllersFactory.userViewController(withName: name)
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+
+class UserNavigationFlowCoordinator: UserFlowCoordinator, NavigationCoordinatorProtocol {
+    
+    weak var presentingNavigationController: NavigationViewController!
+    
+    required init(presentingNavigationController: NavigationViewController) {
+        self.presentingNavigationController = presentingNavigationController
+    }
+    
+    override func start(animated animated: Bool) {
+        let viewController = viewControllersFactory.usersTableViewController()
+        viewController.selectUserHandler = { [unowned self] name in
+            self.presentUserViewController(withName: name)
+        }
+        
+        presentingNavigationController.pushViewController(viewController, animated: animated)
+    }
+    
+    override func finish(animated animated: Bool) {
+        // ...
+    }
+    
+    private override func presentUserViewController(withName name: String) {
+        let viewController = viewControllersFactory.userViewController(withName: name)
+        presentingNavigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+
+class UserMasterDetailFlowCoordinator: UserFlowCoordinator, MasterDetailCoordinatorProtocol {
+    
+    weak var splitViewController: UISplitViewController!
+    
+    required init(splitViewController: UISplitViewController) {
+        self.splitViewController = splitViewController
+    }
+    
+    override func start(animated animated: Bool) {
+        let viewController = viewControllersFactory.usersTableViewController()
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.selectUserHandler = { [unowned self] name in
+            self.presentUserViewController(withName: name)
+        }
+        
+        let navVC = viewControllersFactory.navigationController()
+        navVC.setViewControllers([viewController], animated: false)
+        
+        splitViewController.viewControllers = [navVC]
+    }
+    
+    override func finish(animated animated: Bool) {
+        // ...
+    }
+    
+    private override func presentUserViewController(withName name: String) {
+
+        let viewController = viewControllersFactory.userViewController(withName: name)
+        let navVC = viewControllersFactory.navigationController()
+        navVC.setViewControllers([viewController], animated: false)
+        
+        splitViewController.showDetailViewController(navVC, sender: nil)
     }
 }
 
@@ -124,7 +180,6 @@ class UserPageBasedFlowCoordinator: UserFlowCoordinator, PageBasedCoordinatorPro
         alertController.addAction(defaultAction)
         pageViewController.presentViewController(alertController, animated: true, completion: nil)
     }
-
 }
 
 
@@ -180,63 +235,6 @@ class UserTabbedFlowCoordinator: UserFlowCoordinator, TabbedCoordinatorProtocol 
 }
 
 
-class UserNavigationFlowCoordinator: UserFlowCoordinator, NavigationCoordinatorProtocol {
-    
-    weak var presentingNavigationController: NavigationViewController!
-    
-    required init(presentingNavigationController: NavigationViewController) {
-        self.presentingNavigationController = presentingNavigationController
-    }
-    
-    override func start(animated animated: Bool) {
-        let viewController = viewControllersFactory.usersTableViewController()
-        viewController.selectUserHandler = { [unowned self] name in
-            self.presentUserViewController(withName: name)
-        }
-        
-        presentingNavigationController.pushViewController(viewController, animated: animated)
-    }
-    
-    override func finish(animated animated: Bool) {
-        // ...
-    }
-
-    private override func presentUserViewController(withName name: String) {
-        let viewController = viewControllersFactory.userViewController(withName: name)
-        presentingNavigationController?.pushViewController(viewController, animated: true)
-    }
-
-}
-
-
-class UserFlowCoordinator: CoordinatorProtocol {
-    
-    weak var navigationController: NavigationViewController!
-    
-    var closeHandler: () -> () = { fatalError() }
-    
-    let viewControllersFactory = UserViewControllersFactory()
-    
-    
-    func start(animated animated: Bool) {
-        
-    }
-    
-    @objc func end(sender: UIBarButtonItem) {
-        closeHandler()
-    }
-    
-    func finish(animated animated: Bool) {
-        
-    }
-    
-    private func presentUserViewController(withName name: String) {
-        
-    }
-    
-}
-
-
 class UserContainerFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtocol {
    
     weak var presentingViewController: UIViewController!
@@ -250,7 +248,7 @@ class UserContainerFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtoco
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
         viewController.usersViewControllerBuilder = { [unowned self] in
             let usersTableViewController = self.viewControllersFactory.usersTableViewController()
-            usersTableViewController.selectUserHandler = { [unowned self, weak viewController] name in
+            usersTableViewController.selectUserHandler = { [weak viewController] name in
                 viewController?.updateUserViewController(name)
             }
             return usersTableViewController
@@ -279,5 +277,4 @@ class UserContainerFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtoco
     private override func presentUserViewController(withName name: String) {
         
     }
-
 }
