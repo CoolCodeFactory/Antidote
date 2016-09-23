@@ -13,7 +13,7 @@ class UserContainerViewController: UIViewController {
     @IBOutlet weak var usersContainerView: UIView!
     @IBOutlet weak var userContainerView: UIView!
     
-    var usersViewControllerBuilder: () -> (UsersTableViewController) = {
+    var usersViewControllerBuilder: () -> (UsersTableViewControllerProtocol) = {
         fatalError()
         // closure return type fix
         UsersTableViewController()
@@ -36,7 +36,7 @@ class UserContainerViewController: UIViewController {
         }
     }
     
-    weak var usersViewController: UsersTableViewController?
+    weak var usersViewControllerProtocol: UsersTableViewControllerProtocol?
     weak var userViewController: UserViewController?
     
     override func viewDidLoad() {
@@ -44,10 +44,10 @@ class UserContainerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        usersViewController = usersViewControllerBuilder()
-        displayContentController(usersViewController!, inView: usersContainerView, animated: false)
+        usersViewControllerProtocol = usersViewControllerBuilder()
+        displayContentController(usersViewControllerProtocol!.viewController()!, inView: usersContainerView, animated: false)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

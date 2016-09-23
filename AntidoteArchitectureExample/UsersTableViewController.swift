@@ -8,7 +8,22 @@
 
 import UIKit
 
-class UsersTableViewController: UITableViewController {
+
+protocol UsersTableViewControllerProtocol: class {
+    
+    var selectUserHandler: (String) -> () { get set }
+}
+
+extension UsersTableViewControllerProtocol {
+    
+    func viewController() -> UIViewController? {
+        let vc = self as? UIViewController
+        return vc
+    }
+}
+
+
+class UsersTableViewController: UITableViewController, UsersTableViewControllerProtocol {
 
     var selectUserHandler: (String) -> () = { _ in fatalError() }
     
