@@ -177,6 +177,8 @@ class UserPageBasedFlowCoordinator: UserFlowCoordinator, PageBasedCoordinatorPro
     
     override func start(animated: Bool) {
         let viewController = viewControllersFactory.usersTableViewController()
+        pageViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
+
         viewController.selectUserHandler = { [unowned self] name in
             self.presentUserViewController(withName: name)
         }

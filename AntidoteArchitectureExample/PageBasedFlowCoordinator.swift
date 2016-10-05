@@ -29,7 +29,6 @@ class PageBasedFlowCoordinator: ModalCoordinatorProtocol {
     
     func start(animated: Bool) {
         pageBasedViewController = viewControllersFactory.pageBasedViewController()
-        pageBasedViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         let navigationController = NavigationViewController(rootViewController: pageBasedViewController)
 
         let userFlowCoordinator = UserPageBasedFlowCoordinator(pageViewController: pageBasedViewController)
@@ -48,9 +47,5 @@ class PageBasedFlowCoordinator: ModalCoordinatorProtocol {
     func finish(animated: Bool) {
         removeAllChildCoordinators()
         navigationController.dismiss(animated: animated, completion: nil)
-    }
-    
-    @objc func end(_ sender: UIBarButtonItem) {
-        closeHandler()
     }
 }
