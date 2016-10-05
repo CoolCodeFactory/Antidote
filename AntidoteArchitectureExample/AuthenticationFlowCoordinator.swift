@@ -10,6 +10,8 @@ import UIKit
 
 
 class AuthenticationFlowCoordinator: RootCoordinatorProtocol {
+    
+    var childCoordinators: [CoordinatorProtocol] = []
         
     weak var navigationController: NavigationViewController!
     
@@ -30,12 +32,12 @@ class AuthenticationFlowCoordinator: RootCoordinatorProtocol {
     func start(animated: Bool) {
         let viewController = viewControllersFactory.signInViewController()
         viewController.signInHandler = { [unowned self] in
-            self.finish(animated: animated)
+            self.closeHandler()
         }
         window.setRootViewController(viewController, animated: animated)
     }
     
     func finish(animated: Bool) {
-        closeHandler()
+        removeAllChildCoordinators()
     }
 }

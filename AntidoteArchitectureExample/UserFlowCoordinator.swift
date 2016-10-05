@@ -11,6 +11,8 @@ import UIKit
 
 class UserFlowCoordinator: CoordinatorProtocol {
     
+    var childCoordinators: [CoordinatorProtocol] = []
+    
     weak var navigationController: NavigationViewController!
     
     var closeHandler: () -> () = { fatalError() }
@@ -59,6 +61,8 @@ class UserModalFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtocol {
     }
     
     override func finish(animated: Bool) {
+        removeAllChildCoordinators()
+
         navigationController.dismiss(animated: animated, completion: nil)
         
         let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
@@ -99,6 +103,8 @@ class UserNavigationFlowCoordinator: UserFlowCoordinator, NavigationCoordinatorP
     }
     
     override func finish(animated: Bool) {
+        removeAllChildCoordinators()
+
         let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
         let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alertController.addAction(defaultAction)
@@ -138,6 +144,8 @@ class UserMasterDetailFlowCoordinator: UserFlowCoordinator, MasterDetailCoordina
     }
     
     override func finish(animated: Bool) {
+        removeAllChildCoordinators()
+
         let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
         let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alertController.addAction(defaultAction)
@@ -169,7 +177,6 @@ class UserPageBasedFlowCoordinator: UserFlowCoordinator, PageBasedCoordinatorPro
     
     override func start(animated: Bool) {
         let viewController = viewControllersFactory.usersTableViewController()
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         viewController.selectUserHandler = { [unowned self] name in
             self.presentUserViewController(withName: name)
         }
@@ -183,6 +190,8 @@ class UserPageBasedFlowCoordinator: UserFlowCoordinator, PageBasedCoordinatorPro
     }
     
     override func finish(animated: Bool) {
+        removeAllChildCoordinators()
+
         let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
         let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alertController.addAction(defaultAction)
@@ -238,6 +247,8 @@ class UserTabbedFlowCoordinator: UserFlowCoordinator, TabbedCoordinatorProtocol 
     }
     
     override func finish(animated: Bool) {
+        removeAllChildCoordinators()
+
         let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
         let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alertController.addAction(defaultAction)
@@ -282,7 +293,7 @@ class UserContainerFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtoco
     override func start(animated: Bool) {
         let viewController = viewControllersFactory.userContainerViewController()
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
-        viewController.usersViewControllerBuilder = { [unowned self] in
+        viewController.usersViewControllerBuilder = { [unowned self, weak viewController] in
             let usersTableViewController = self.viewControllersFactory.usersTableViewController()
             usersTableViewController.selectUserHandler = { [weak viewController] name in
                 viewController?.updateUserViewController(name)
@@ -307,6 +318,8 @@ class UserContainerFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtoco
     }
     
     override func finish(animated: Bool) {
+        removeAllChildCoordinators()
+
         navigationController.dismiss(animated: animated, completion: nil)
         
         let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)

@@ -8,15 +8,40 @@
 
 import UIKit
 
-
-protocol CoordinatorProtocol: class {
+protocol BaseCoordinatorProtocol: class {
     
-    weak var navigationController: NavigationViewController! { get set }
-
+    var childCoordinators: [CoordinatorProtocol] { get set }
+    
     var closeHandler: () -> () { get set }
     
     func start(animated: Bool)
     func finish(animated: Bool)
+}
+
+protocol CoordinatorProtocol: BaseCoordinatorProtocol {
+    
+    var childCoordinators: [CoordinatorProtocol] { get set }
+
+    weak var navigationController: NavigationViewController! { get set }
+}
+
+extension BaseCoordinatorProtocol {
+    
+    func addChildCoordinator(_ coordinator: CoordinatorProtocol) {
+        guard !childCoordinators.contains(where: { $0 === coordinator }) else { return }
+        childCoordinators.append(coordinator)
+    }
+    
+    func removeChildCoordinator(_ coordinator: CoordinatorProtocol) {
+        guard let index = self.childCoordinators.index(where: {$0 === coordinator}) else { return }
+        childCoordinators.remove(at: index)
+    }
+    
+    func removeAllChildCoordinators() {
+        for childCoordinator in childCoordinators {
+            removeChildCoordinator(childCoordinator)
+        }
+    }
 }
 
 protocol RootCoordinatorProtocol: CoordinatorProtocol {

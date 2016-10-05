@@ -11,13 +11,14 @@ import UIKit
 
 class PageBasedFlowCoordinator: ModalCoordinatorProtocol {
     
+    var childCoordinators: [CoordinatorProtocol] = []
+
     weak var navigationController: NavigationViewController!
     
     var closeHandler: () -> () = { fatalError() }
     
     let viewControllersFactory = PageBasedViewControllersFactory()
 
-    var userFlowCoordinator: UserFlowCoordinator!
     weak var pageBasedViewController: PageBasedViewController!
     
     weak var presentingViewController: UIViewController!
@@ -31,19 +32,21 @@ class PageBasedFlowCoordinator: ModalCoordinatorProtocol {
         pageBasedViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         let navigationController = NavigationViewController(rootViewController: pageBasedViewController)
 
-        userFlowCoordinator = UserPageBasedFlowCoordinator(pageViewController: pageBasedViewController)
-        
-        
-        userFlowCoordinator.start(animated: animated)
-        userFlowCoordinator.closeHandler = { [unowned self] in
-            self.userFlowCoordinator.finish(animated: animated)
+        let userFlowCoordinator = UserPageBasedFlowCoordinator(pageViewController: pageBasedViewController)
+        addChildCoordinator(userFlowCoordinator)
+        userFlowCoordinator.closeHandler = { [unowned userFlowCoordinator] in
+            userFlowCoordinator.finish(animated: animated)
+            self.removeChildCoordinator(userFlowCoordinator)
             self.closeHandler()
         }
+        userFlowCoordinator.start(animated: animated)
+        
         presentingViewController.present(navigationController, animated: animated, completion: nil)
         self.navigationController = navigationController
     }
     
     func finish(animated: Bool) {
+        removeAllChildCoordinators()
         navigationController.dismiss(animated: animated, completion: nil)
     }
     

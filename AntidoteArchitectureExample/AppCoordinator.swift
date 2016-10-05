@@ -9,12 +9,12 @@
 import UIKit
 
 
-class AppCoordinator {
-    
+class AppCoordinator: BaseCoordinatorProtocol {
+    var childCoordinators: [CoordinatorProtocol] = []
+
+    var closeHandler: () -> () = { }
+
     weak var window: UIWindow!
-    
-    var menuFlowCoordinator: MenuFlowCoordinator!
-    var authenticationFlowCoordinator: AuthenticationFlowCoordinator!
     
     fileprivate var isAuthenticated = true
     
@@ -23,20 +23,34 @@ class AppCoordinator {
     }
     
     func start(animated: Bool) {
-        menuFlowCoordinator = MenuFlowCoordinator(window: window)
-        authenticationFlowCoordinator = AuthenticationFlowCoordinator(window: window)
-
+        closeHandler = {
+            self.finish(animated: animated)
+        }
+        
         if authenticated() {
-            menuFlowCoordinator.closeHandler = { [unowned self] in
-                self.start(animated: animated)
+            let menuFlowCoordinator = MenuFlowCoordinator(window: window)
+            addChildCoordinator(menuFlowCoordinator)
+            menuFlowCoordinator.closeHandler = { [unowned menuFlowCoordinator] in
+                menuFlowCoordinator.finish(animated: animated)
+                self.removeChildCoordinator(menuFlowCoordinator)
+                self.closeHandler()
             }
             menuFlowCoordinator.start(animated: animated)
         } else {
-            authenticationFlowCoordinator.closeHandler = { [unowned self] in
-                self.start(animated: animated)
+            let authenticationFlowCoordinator = AuthenticationFlowCoordinator(window: window)
+            addChildCoordinator(authenticationFlowCoordinator)
+            authenticationFlowCoordinator.closeHandler = { [unowned authenticationFlowCoordinator] in
+                authenticationFlowCoordinator.finish(animated: animated)
+                self.removeChildCoordinator(authenticationFlowCoordinator)
+                self.closeHandler()
             }
             authenticationFlowCoordinator.start(animated: animated)
         }
+    }
+    
+    func finish(animated: Bool) {
+        self.removeAllChildCoordinators()
+        start(animated: animated)
     }
 }
 

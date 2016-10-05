@@ -12,13 +12,14 @@ import UIKit
 
 class TabbedFlowCoordinator: ModalCoordinatorProtocol {
     
+    var childCoordinators: [CoordinatorProtocol] = []
+    
     weak var navigationController: NavigationViewController!
     
     var closeHandler: () -> () = { fatalError() }
     
     let viewControllersFactory = TabbedViewControllersFactory()
 
-    var userFlowCoordinator: UserFlowCoordinator!
     weak var tabBarController: UITabBarController!
     
     weak var presentingViewController: UIViewController!
@@ -29,18 +30,21 @@ class TabbedFlowCoordinator: ModalCoordinatorProtocol {
     
     func start(animated: Bool) {
         tabBarController = viewControllersFactory.tabbedController()
-        userFlowCoordinator = UserTabbedFlowCoordinator(tabBarController: tabBarController)
-
         
-        userFlowCoordinator.start(animated: animated)
+        let userFlowCoordinator = UserTabbedFlowCoordinator(tabBarController: tabBarController)
+        addChildCoordinator(userFlowCoordinator)
         userFlowCoordinator.closeHandler = { [unowned self] in
-            self.userFlowCoordinator.finish(animated: animated)
+            userFlowCoordinator.finish(animated: animated)
+            self.removeChildCoordinator(userFlowCoordinator)
             self.closeHandler()
         }
+        userFlowCoordinator.start(animated: animated)
+
         presentingViewController.present(tabBarController, animated: animated, completion: nil)
     }
     
     func finish(animated: Bool) {
+        removeAllChildCoordinators()
         tabBarController.dismiss(animated: true, completion: nil)
     }
 
