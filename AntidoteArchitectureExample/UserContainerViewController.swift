@@ -14,18 +14,14 @@ class UserContainerViewController: UIViewController {
     @IBOutlet weak var userContainerView: UIView!
     
     var usersViewControllerBuilder: () -> (UsersTableViewControllerProtocol) = {
-        fatalError()
-        // closure return type fix
-        UsersTableViewController()
+        closureFatalError()
     }
     
     var userViewControllerBuilder: (String) -> (UserViewController) = { _ in
-        fatalError()
-        // closure return type fix
-        UserViewController()
+        closureFatalError()
     }
     
-    func updateUserViewController(name: String) {
+    func updateUserViewController(_ name: String) {
         if let userViewController = userViewController {
             let newUserViewController = userViewControllerBuilder(name)
             exchangeContentController(fromContentController: userViewController, toContentController: newUserViewController, inView: userContainerView, animated: true)

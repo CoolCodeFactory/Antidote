@@ -27,7 +27,7 @@ class AuthenticationFlowCoordinator: RootCoordinatorProtocol {
         print("Deinit: \(self)")
     }
     
-    func start(animated animated: Bool) {
+    func start(animated: Bool) {
         let viewController = viewControllersFactory.signInViewController()
         viewController.signInHandler = { [unowned self] in
             self.finish(animated: animated)
@@ -35,7 +35,7 @@ class AuthenticationFlowCoordinator: RootCoordinatorProtocol {
         window.setRootViewController(viewController, animated: animated)
     }
     
-    func finish(animated animated: Bool) {
+    func finish(animated: Bool) {
         closeHandler()
     }
 }

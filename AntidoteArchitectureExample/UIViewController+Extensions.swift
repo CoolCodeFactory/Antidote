@@ -11,66 +11,66 @@ import SnapKit
 
 extension UIViewController {
     
-    func displayContentController(contentController: UIViewController, inView view: UIView, animated: Bool, duration: NSTimeInterval = kDefaultAnimationDuration) {
+    func displayContentController(_ contentController: UIViewController, inView view: UIView, animated: Bool, duration: TimeInterval = kDefaultAnimationDuration) {
         addChildViewController(contentController)
         view.addSubview(contentController.view)
-        contentController.view.snp_makeConstraints { (make) in
+        contentController.view.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
         
         if animated {
             contentController.view.alpha = 0.0
-            UIView.animateWithDuration(duration, animations: { 
+            UIView.animate(withDuration: duration, animations: { 
                 contentController.view.alpha = 1.0
             }, completion: { (finished) in
-                contentController.didMoveToParentViewController(self)
+                contentController.didMove(toParentViewController: self)
             })
         } else {
-            contentController.didMoveToParentViewController(self)
+            contentController.didMove(toParentViewController: self)
         }
     }
     
-    func hideContentController(animated animated: Bool, duration: NSTimeInterval = kDefaultAnimationDuration) {
+    func hideContentController(animated: Bool, duration: TimeInterval = kDefaultAnimationDuration) {
         if animated {
-            UIView.animateWithDuration(duration, animations: {
+            UIView.animate(withDuration: duration, animations: {
                 self.view.alpha = 0.0
-            }) { (finished) in
-                self.willMoveToParentViewController(nil)
+            }, completion: { (finished) in
+                self.willMove(toParentViewController: nil)
                 self.view.removeFromSuperview()
                 self.removeFromParentViewController()
-            }
+            }) 
         } else {
-            willMoveToParentViewController(nil)
+            willMove(toParentViewController: nil)
             view.removeFromSuperview()
             removeFromParentViewController()
         }
     }
     
-    func exchangeContentController(fromContentController fromContentController: UIViewController, toContentController: UIViewController, inView view: UIView, animated: Bool, duration: NSTimeInterval = kDefaultAnimationDuration) {
-        fromContentController.willMoveToParentViewController(nil)
+    func exchangeContentController(fromContentController: UIViewController, toContentController: UIViewController, inView view: UIView, animated: Bool, duration: TimeInterval = kDefaultAnimationDuration) {
+        fromContentController.willMove(toParentViewController: nil)
         addChildViewController(toContentController)
         
         toContentController.view.frame = fromContentController.view.frame
         
-        transitionFromViewController(fromContentController, toViewController: toContentController, duration: duration, options: [.TransitionCrossDissolve], animations: {
-            toContentController.view.snp_makeConstraints { (make) in
+        transition(from: fromContentController, to: toContentController, duration: duration, options: [.transitionCrossDissolve], animations: {
+            toContentController.view.snp.makeConstraints { (make) in
                 make.edges.equalTo(view)
             }
         }) { (finished) in
             fromContentController.removeFromParentViewController()
-            toContentController.didMoveToParentViewController(self)
+            toContentController.didMove(toParentViewController: self)
         }
     }
     
     class var className: String {
-        return String(self)
+        return String(describing: self)
     }
     
-    private class func instantiateControllerInStoryboard<T: UIViewController>(storyboard: UIStoryboard, identifier: String) -> T {
-        return storyboard.instantiateViewControllerWithIdentifier(identifier) as! T
+    fileprivate class func instantiateControllerInStoryboard<T: UIViewController>(_ storyboard: UIStoryboard, identifier: String) -> T {
+        return storyboard.instantiateViewController(withIdentifier: identifier) as! T
     }
     
-    class func controllerFromStoryboard(storyboard: UIStoryboard) -> Self {
+    class func controllerFromStoryboard(_ storyboard: UIStoryboard) -> Self {
         return instantiateControllerInStoryboard(storyboard, identifier: className)
     }
     

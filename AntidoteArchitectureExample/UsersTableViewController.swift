@@ -26,6 +26,7 @@ extension UsersTableViewControllerProtocol {
 class UsersTableViewController: UITableViewController, UsersTableViewControllerProtocol {
 
     var selectUserHandler: (String) -> () = { _ in fatalError() }
+    var controllerCloseHandler: () -> () = { }
     
     
     deinit {
@@ -41,6 +42,13 @@ class UsersTableViewController: UITableViewController, UsersTableViewControllerP
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if isMovingFromParentViewController {
+            controllerCloseHandler()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,8 +56,8 @@ class UsersTableViewController: UITableViewController, UsersTableViewControllerP
     }
 
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         selectUserHandler(cell.textLabel!.text!)
     }
 

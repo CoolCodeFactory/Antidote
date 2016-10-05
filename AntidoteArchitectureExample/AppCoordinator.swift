@@ -16,13 +16,13 @@ class AppCoordinator {
     var menuFlowCoordinator: MenuFlowCoordinator!
     var authenticationFlowCoordinator: AuthenticationFlowCoordinator!
     
-    private var isAuthenticated = true
+    fileprivate var isAuthenticated = true
     
     required init(window: UIWindow) {
         self.window = window
     }
     
-    func start(animated animated: Bool) {
+    func start(animated: Bool) {
         menuFlowCoordinator = MenuFlowCoordinator(window: window)
         authenticationFlowCoordinator = AuthenticationFlowCoordinator(window: window)
 

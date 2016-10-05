@@ -500,6 +500,7 @@
 				1CBC3B511D8BF7FD00BAA6A9 /* Frameworks */,
 				1CBC3B521D8BF7FD00BAA6A9 /* Resources */,
 				BABF41F99D435791A26E2B6C /* [CP] Copy Pods Resources */,
+				41C172E60C3338374670D14B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -518,18 +519,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Dmitry Utmanov";
 				TargetAttributes = {
 					1CBC3B341D8BF7FD00BAA6A9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = HZSC95VYEQ;
+						LastSwiftMigration = 0800;
 					};
 					1CBC3B481D8BF7FD00BAA6A9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 1CBC3B341D8BF7FD00BAA6A9;
 					};
 					1CBC3B531D8BF7FD00BAA6A9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 1CBC3B341D8BF7FD00BAA6A9;
 					};
 				};
@@ -620,6 +625,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AntidoteArchitectureExampleTests/Pods-AntidoteArchitectureExampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		41C172E60C3338374670D14B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AntidoteArchitectureExampleUITests/Pods-AntidoteArchitectureExampleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9D17459BA33B7F4DB229583E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,7 +652,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A5FE29F2F7CF807E207887A7 /* [CP] Copy Pods Resources */ = {
@@ -677,7 +697,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D61123BACAB728A1BA192498 /* [CP] Embed Pods Frameworks */ = {
@@ -707,7 +727,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -814,8 +834,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -860,8 +882,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -880,6 +904,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -889,11 +914,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A2D29B4D197CAC34B6C30CEC /* Pods-AntidoteArchitectureExample.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = HZSC95VYEQ;
 				INFOPLIST_FILE = AntidoteArchitectureExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExample;
 				PRODUCT_NAME = AntidoteArchitectureExample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -901,11 +929,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8A9786335D0E797009A8D34 /* Pods-AntidoteArchitectureExample.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = HZSC95VYEQ;
 				INFOPLIST_FILE = AntidoteArchitectureExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExample;
 				PRODUCT_NAME = AntidoteArchitectureExample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -913,11 +944,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E3F400F609E99060388E535 /* Pods-AntidoteArchitectureExampleTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AntidoteArchitectureExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExampleTests;
 				PRODUCT_NAME = AntidoteArchitectureExample;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AntidoteArchitectureExample.app/AntidoteArchitectureExample";
 			};
 			name = Debug;
@@ -926,11 +959,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7208FD6F0DC1C2AE1062EBC5 /* Pods-AntidoteArchitectureExampleTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AntidoteArchitectureExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExampleTests;
 				PRODUCT_NAME = AntidoteArchitectureExample;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AntidoteArchitectureExample.app/AntidoteArchitectureExample";
 			};
 			name = Release;
@@ -939,10 +974,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2396F263AB5CCEAC0F72419B /* Pods-AntidoteArchitectureExampleUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AntidoteArchitectureExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExampleUITests;
 				PRODUCT_NAME = AntidoteArchitectureExample;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = AntidoteArchitectureExample;
 			};
 			name = Debug;
@@ -951,10 +989,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 50D07AA85E49807B15837996 /* Pods-AntidoteArchitectureExampleUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AntidoteArchitectureExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.cooler.AntidoteArchitectureExampleUITests;
 				PRODUCT_NAME = AntidoteArchitectureExample;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = AntidoteArchitectureExample;
 			};
 			name = Release;

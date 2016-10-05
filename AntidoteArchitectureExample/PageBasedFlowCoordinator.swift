@@ -26,9 +26,9 @@ class PageBasedFlowCoordinator: ModalCoordinatorProtocol {
         self.presentingViewController = presentingViewController
     }
     
-    func start(animated animated: Bool) {
+    func start(animated: Bool) {
         pageBasedViewController = viewControllersFactory.pageBasedViewController()
-        pageBasedViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        pageBasedViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         let navigationController = NavigationViewController(rootViewController: pageBasedViewController)
 
         userFlowCoordinator = UserPageBasedFlowCoordinator(pageViewController: pageBasedViewController)
@@ -36,17 +36,18 @@ class PageBasedFlowCoordinator: ModalCoordinatorProtocol {
         
         userFlowCoordinator.start(animated: animated)
         userFlowCoordinator.closeHandler = { [unowned self] in
-            self.finish(animated: animated)
+            self.userFlowCoordinator.finish(animated: animated)
+            self.closeHandler()
         }
-        presentingViewController.presentViewController(navigationController, animated: animated, completion: nil)
+        presentingViewController.present(navigationController, animated: animated, completion: nil)
         self.navigationController = navigationController
     }
     
-    func finish(animated animated: Bool) {
-        navigationController.dismissViewControllerAnimated(animated, completion: nil)
+    func finish(animated: Bool) {
+        navigationController.dismiss(animated: animated, completion: nil)
     }
     
-    @objc func end(sender: UIBarButtonItem) {
+    @objc func end(_ sender: UIBarButtonItem) {
         closeHandler()
     }
 }

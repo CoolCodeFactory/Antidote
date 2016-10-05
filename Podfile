@@ -3,7 +3,7 @@ platform :ios, '9.0'
 target 'AntidoteArchitectureExample' do
   use_frameworks!
 
-  pod 'SnapKit', '~> 0.22.0'
+  pod 'SnapKit'
 
   target 'AntidoteArchitectureExampleTests' do
     inherit! :search_paths

@@ -12,17 +12,18 @@ import UIKit
 class PageBasedViewController: UIPageViewController {
 
 
-    private var _viewControllers: [UIViewController]!
+    fileprivate var _viewControllers: [UIViewController]!
 
-    override func setViewControllers(viewControllers: [UIViewController]?, direction: UIPageViewControllerNavigationDirection, animated: Bool, completion: ((Bool) -> Void)?) {
+    override func setViewControllers(_ viewControllers: [UIViewController]?, direction: UIPageViewControllerNavigationDirection, animated: Bool, completion: ((Bool) -> Void)?) {
         super.setViewControllers(viewControllers, direction: direction, animated: animated, completion: completion)
     }
     
-    func setViewControllers(viewControllers: [UIViewController]?) {
+    func setViewControllers(_ viewControllers: [UIViewController]?) {
         _viewControllers = viewControllers
+        _viewControllers.forEach { $0.automaticallyAdjustsScrollViewInsets = false }
         
         let currentViewController = _viewControllers.first!
-        setViewControllers([currentViewController], direction: .Forward, animated:true, completion:nil)
+        setViewControllers([currentViewController], direction: .forward, animated:true, completion:nil)
         
         dataSource = nil
         dataSource = self
@@ -35,10 +36,22 @@ class PageBasedViewController: UIPageViewController {
         dataSource = self
         
         let currentViewController = _viewControllers.first!
-        setViewControllers([currentViewController], direction: .Forward, animated:true, completion:nil)
-        view.backgroundColor = UIColor.whiteColor()
+        setViewControllers([currentViewController], direction: .forward, animated:true, completion:nil)
+        view.backgroundColor = UIColor.white
         
         configurePageControl()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        _viewControllers.forEach { (viewController) in
+            if let tvc = viewController as? UITableViewController {
+                let height = (self.navigationController?.navigationBar.frame.height ?? 0) + min(UIApplication.shared.statusBarFrame.size.width, UIApplication.shared.statusBarFrame.size.height)
+                tvc.tableView.contentInset.top = height
+                tvc.tableView.scrollIndicatorInsets.top = height
+            }
+        }
     }
     
     func configurePageControl() {
@@ -51,7 +64,7 @@ class PageBasedViewController: UIPageViewController {
         }
         guard let pageControl = foundedPageControl else { return }
         
-        pageControl.pageIndicatorTintColor = view.tintColor.colorWithAlphaComponent(0.3)
+        pageControl.pageIndicatorTintColor = view.tintColor.withAlphaComponent(0.3)
         pageControl.currentPageIndicatorTintColor = view.tintColor
         pageControl.backgroundColor = view.backgroundColor
     }
@@ -63,21 +76,21 @@ class PageBasedViewController: UIPageViewController {
 
 extension PageBasedViewController: UIPageViewControllerDataSource {
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if viewController == self._viewControllers.first {
             return nil
         } else {
-            let priorPageIndex = self._viewControllers.indexOf(viewController)! - 1
+            let priorPageIndex = self._viewControllers.index(of: viewController)! - 1
             return self._viewControllers[priorPageIndex]
         }
     }
     
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if viewController == self._viewControllers.last {
             return nil
         } else {
-            let nextPageIndex = self._viewControllers.indexOf(viewController)! + 1
+            let nextPageIndex = self._viewControllers.index(of: viewController)! + 1
             return self._viewControllers[nextPageIndex]
         }
     }
@@ -86,11 +99,11 @@ extension PageBasedViewController: UIPageViewControllerDataSource {
 
 extension PageBasedViewController: UIPageViewControllerDelegate {
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    @objc(presentationCountForPageViewController:) func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return _viewControllers.count
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    @objc(presentationIndexForPageViewController:) func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
 }

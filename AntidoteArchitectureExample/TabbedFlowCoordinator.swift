@@ -27,20 +27,21 @@ class TabbedFlowCoordinator: ModalCoordinatorProtocol {
         self.presentingViewController = presentingViewController
     }
     
-    func start(animated animated: Bool) {
+    func start(animated: Bool) {
         tabBarController = viewControllersFactory.tabbedController()
         userFlowCoordinator = UserTabbedFlowCoordinator(tabBarController: tabBarController)
 
         
         userFlowCoordinator.start(animated: animated)
         userFlowCoordinator.closeHandler = { [unowned self] in
-            self.finish(animated: animated)
+            self.userFlowCoordinator.finish(animated: animated)
+            self.closeHandler()
         }
-        presentingViewController.presentViewController(tabBarController, animated: animated, completion: nil)
+        presentingViewController.present(tabBarController, animated: animated, completion: nil)
     }
     
-    func finish(animated animated: Bool) {
-        tabBarController.dismissViewControllerAnimated(true, completion: nil)
+    func finish(animated: Bool) {
+        tabBarController.dismiss(animated: true, completion: nil)
     }
 
 }

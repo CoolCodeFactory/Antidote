@@ -30,7 +30,7 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
         self.window = window
     }
     
-    func start(animated animated: Bool) {
+    func start(animated: Bool) {
         let viewController = viewControllersFactory.menuTableViewController()
         let navigationController = NavigationViewController(rootViewController: viewController)
         
@@ -67,7 +67,7 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
         }
         viewController.selectPushHandler = { [unowned self] in
             self.userFlowCoordinator.closeHandler = { [unowned self] in
-                self.userContainerFlowCoordinator.finish(animated: animated)
+                self.userFlowCoordinator.finish(animated: animated)
             }
             self.userFlowCoordinator.start(animated: animated)
         }
@@ -78,12 +78,12 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
             self.userContainerFlowCoordinator.start(animated: animated)
         }
         
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         window.setRootViewController(navigationController, animated: animated)
         self.navigationController = navigationController
     }
     
-    func finish(animated animated: Bool) {
+    func finish(animated: Bool) {
         // ...
     }
     
@@ -92,7 +92,7 @@ class MenuFlowCoordinator: RootCoordinatorProtocol {
         print("Deinit: \(self)")
     }
     
-    @objc func end(sender: UIBarButtonItem) {
+    @objc func end(_ sender: UIBarButtonItem) {
         closeHandler()
     }
 }

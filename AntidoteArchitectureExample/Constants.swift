@@ -9,4 +9,9 @@
 import Foundation
 
 
-let kDefaultAnimationDuration: NSTimeInterval = 0.25
+let kDefaultAnimationDuration: TimeInterval = 0.25
+
+
+func closureFatalError<T>() -> T {
+    fatalError()
+}

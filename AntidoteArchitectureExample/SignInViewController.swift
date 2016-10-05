@@ -25,7 +25,7 @@ class SignInViewController: UIViewController {
     }
     
 
-    @IBAction func signIn(sender: AnyObject) {
+    @IBAction func signIn(_ sender: AnyObject) {
         signInHandler()
     }
     

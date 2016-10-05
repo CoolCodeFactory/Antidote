@@ -18,20 +18,20 @@ class UserFlowCoordinator: CoordinatorProtocol {
     let viewControllersFactory = UserViewControllersFactory()
     
     
-    func start(animated animated: Bool) {
-        
+    func start(animated: Bool) {
+        fatalError()
     }
     
-    @objc func end(sender: UIBarButtonItem) {
-        closeHandler()
+    @objc func end(_ sender: UIBarButtonItem) {
+        fatalError()
     }
     
-    func finish(animated animated: Bool) {
-        
+    func finish(animated: Bool) {
+        fatalError()
     }
     
-    private func presentUserViewController(withName name: String) {
-        
+    fileprivate func presentUserViewController(withName name: String) {
+        fatalError()
     }
 }
 
@@ -44,9 +44,9 @@ class UserModalFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtocol {
         self.presentingViewController = presentingViewController
     }
     
-    override func start(animated animated: Bool) {
+    override func start(animated: Bool) {
         let viewController = viewControllersFactory.usersTableViewController()
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         viewController.selectUserHandler = { [unowned self] name in
             self.presentUserViewController(withName: name)
         }
@@ -54,19 +54,24 @@ class UserModalFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtocol {
         let navVC = viewControllersFactory.navigationController()
         navVC.setViewControllers([viewController], animated: false)
         
-        presentingViewController.presentViewController(navVC, animated: true, completion: nil)
+        presentingViewController.present(navVC, animated: true, completion: nil)
         navigationController = navVC
     }
     
-    override func finish(animated animated: Bool) {
-        navigationController.dismissViewControllerAnimated(animated, completion: nil)
+    override func finish(animated: Bool) {
+        navigationController.dismiss(animated: animated, completion: nil)
+        
+        let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alertController.addAction(defaultAction)
+        presentingViewController.present(alertController, animated: true, completion: nil)
     }
     
-    @objc override func end(sender: UIBarButtonItem) {
+    @objc override func end(_ sender: UIBarButtonItem) {
         closeHandler()
     }
     
-    private override func presentUserViewController(withName name: String) {
+    fileprivate override func presentUserViewController(withName name: String) {
         let viewController = viewControllersFactory.userViewController(withName: name)
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -81,8 +86,11 @@ class UserNavigationFlowCoordinator: UserFlowCoordinator, NavigationCoordinatorP
         self.presentingNavigationController = presentingNavigationController
     }
     
-    override func start(animated animated: Bool) {
+    override func start(animated: Bool) {
         let viewController = viewControllersFactory.usersTableViewController()
+        viewController.controllerCloseHandler = { [unowned self] in
+            self.closeHandler()
+        }
         viewController.selectUserHandler = { [unowned self] name in
             self.presentUserViewController(withName: name)
         }
@@ -90,11 +98,18 @@ class UserNavigationFlowCoordinator: UserFlowCoordinator, NavigationCoordinatorP
         presentingNavigationController.pushViewController(viewController, animated: animated)
     }
     
-    override func finish(animated animated: Bool) {
-        // ...
+    override func finish(animated: Bool) {
+        let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alertController.addAction(defaultAction)
+        presentingNavigationController.present(alertController, animated: true, completion: nil)
     }
     
-    private override func presentUserViewController(withName name: String) {
+    @objc override func end(_ sender: UIBarButtonItem) {
+        closeHandler()
+    }
+    
+    fileprivate override func presentUserViewController(withName name: String) {
         let viewController = viewControllersFactory.userViewController(withName: name)
         presentingNavigationController?.pushViewController(viewController, animated: true)
     }
@@ -109,9 +124,9 @@ class UserMasterDetailFlowCoordinator: UserFlowCoordinator, MasterDetailCoordina
         self.splitViewController = splitViewController
     }
     
-    override func start(animated animated: Bool) {
+    override func start(animated: Bool) {
         let viewController = viewControllersFactory.usersTableViewController()
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         viewController.selectUserHandler = { [unowned self] name in
             self.presentUserViewController(withName: name)
         }
@@ -122,11 +137,18 @@ class UserMasterDetailFlowCoordinator: UserFlowCoordinator, MasterDetailCoordina
         splitViewController.viewControllers = [navVC]
     }
     
-    override func finish(animated animated: Bool) {
-        // ...
+    override func finish(animated: Bool) {
+        let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alertController.addAction(defaultAction)
+        splitViewController.presentingViewController?.present(alertController, animated: true, completion: nil)
     }
     
-    private override func presentUserViewController(withName name: String) {
+    @objc override func end(_ sender: UIBarButtonItem) {
+        closeHandler()
+    }
+    
+    fileprivate override func presentUserViewController(withName name: String) {
 
         let viewController = viewControllersFactory.userViewController(withName: name)
         let navVC = viewControllersFactory.navigationController()
@@ -145,9 +167,9 @@ class UserPageBasedFlowCoordinator: UserFlowCoordinator, PageBasedCoordinatorPro
         self.pageViewController = pageViewController
     }
     
-    override func start(animated animated: Bool) {
+    override func start(animated: Bool) {
         let viewController = viewControllersFactory.usersTableViewController()
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         viewController.selectUserHandler = { [unowned self] name in
             self.presentUserViewController(withName: name)
         }
@@ -160,13 +182,20 @@ class UserPageBasedFlowCoordinator: UserFlowCoordinator, PageBasedCoordinatorPro
         }
     }
     
-    override func finish(animated animated: Bool) {
-        // ...
+    override func finish(animated: Bool) {
+        let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alertController.addAction(defaultAction)
+        pageViewController.presentingViewController?.present(alertController, animated: true, completion: nil)
     }
     
-    private override func presentUserViewController(withName name: String) {
+    @objc override func end(_ sender: UIBarButtonItem) {
+        closeHandler()
+    }
+    
+    fileprivate override func presentUserViewController(withName name: String) {
         let viewController = viewControllersFactory.userViewController(withName: name)
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         
         let viewControllers = pageViewController.viewControllers!
         var filteredViewControllers = viewControllers.filter({ (viewController) -> Bool in
@@ -175,10 +204,10 @@ class UserPageBasedFlowCoordinator: UserFlowCoordinator, PageBasedCoordinatorPro
         filteredViewControllers.append(viewController)
         pageViewController.setViewControllers(filteredViewControllers)
         
-        let alertController = UIAlertController(title: "Second page appeared", message: "UserViewController opened in the second page", preferredStyle: UIAlertControllerStyle.Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        let alertController = UIAlertController(title: "Second page appeared", message: "UserViewController opened in the second page", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alertController.addAction(defaultAction)
-        pageViewController.presentViewController(alertController, animated: true, completion: nil)
+        pageViewController.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -191,9 +220,9 @@ class UserTabbedFlowCoordinator: UserFlowCoordinator, TabbedCoordinatorProtocol 
         self.tabBarController = tabBarController
     }
     
-    override func start(animated animated: Bool) {
+    override func start(animated: Bool) {
         let viewController = viewControllersFactory.usersTableViewController()
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         viewController.selectUserHandler = { [unowned self] name in
             self.presentUserViewController(withName: name)
         }
@@ -208,13 +237,20 @@ class UserTabbedFlowCoordinator: UserFlowCoordinator, TabbedCoordinatorProtocol 
         }
     }
     
-    override func finish(animated animated: Bool) {
-        // ...
+    override func finish(animated: Bool) {
+        let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alertController.addAction(defaultAction)
+        tabBarController.presentingViewController?.present(alertController, animated: true, completion: nil)
     }
     
-    private override func presentUserViewController(withName name: String) {
+    @objc override func end(_ sender: UIBarButtonItem) {
+        closeHandler()
+    }
+    
+    fileprivate override func presentUserViewController(withName name: String) {
         let viewController = viewControllersFactory.userViewController(withName: name)
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         
         let navVC = viewControllersFactory.navigationController()
         navVC.setViewControllers([viewController], animated: false)
@@ -227,10 +263,10 @@ class UserTabbedFlowCoordinator: UserFlowCoordinator, TabbedCoordinatorProtocol 
         filteredViewControllers.append(navVC)
         tabBarController.setViewControllers(filteredViewControllers, animated: false)
         
-        let alertController = UIAlertController(title: "Second tab appeared", message: "UserViewController opened in the second tab", preferredStyle: UIAlertControllerStyle.Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        let alertController = UIAlertController(title: "Second tab appeared", message: "UserViewController opened in the second tab", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alertController.addAction(defaultAction)
-        tabBarController.presentViewController(alertController, animated: true, completion: nil)
+        tabBarController.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -243,9 +279,9 @@ class UserContainerFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtoco
         self.presentingViewController = presentingViewController
     }
     
-    override func start(animated animated: Bool) {
+    override func start(animated: Bool) {
         let viewController = viewControllersFactory.userContainerViewController()
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(end(_:)))
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(end(_:)))
         viewController.usersViewControllerBuilder = { [unowned self] in
             let usersTableViewController = self.viewControllersFactory.usersTableViewController()
             usersTableViewController.selectUserHandler = { [weak viewController] name in
@@ -262,19 +298,24 @@ class UserContainerFlowCoordinator: UserFlowCoordinator, ModalCoordinatorProtoco
         let navVC = viewControllersFactory.navigationController()
         navVC.setViewControllers([viewController], animated: false)
         
-        presentingViewController.presentViewController(navVC, animated: true, completion: nil)
+        presentingViewController.present(navVC, animated: true, completion: nil)
         navigationController = navVC
     }
     
-    override func finish(animated animated: Bool) {
-        navigationController.dismissViewControllerAnimated(animated, completion: nil)
-    }
-    
-    @objc override func end(sender: UIBarButtonItem) {
+    @objc override func end(_ sender: UIBarButtonItem) {
         closeHandler()
     }
     
-    private override func presentUserViewController(withName name: String) {
+    override func finish(animated: Bool) {
+        navigationController.dismiss(animated: animated, completion: nil)
+        
+        let alertController = UIAlertController(title: "Finished!", message: "\(String(describing: self)) did finish", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alertController.addAction(defaultAction)
+        presentingViewController.present(alertController, animated: true, completion: nil)
+    }
+    
+    fileprivate override func presentUserViewController(withName name: String) {
         
     }
 }
