@@ -44,7 +44,7 @@ Antidote Architecture:
 ## Questions:
 - [x] Handle container presentation logic and callbacks? Use public function + callbacks (look at User Container)
 - [x] Who must call and setup closeHandler? - current Coordinator setup child's closeHandler, and called own closeHandler.
-- [ ] Childcoordinators as array(stack) OR as stored properties? (how to remove childcoordinator then push into current UINavigationController) 
+- [x] Childcoordinators as array(stack) OR as stored properties? (how to remove childcoordinator then push into current UINavigationController) 
   
 ## Q&A
 Open issue and write all yours questions!  
